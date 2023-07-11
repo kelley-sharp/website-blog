@@ -1,5 +1,7 @@
 import { getSortedPostsData } from "../../../lib/posts";
 import { BlogPost } from "../../../types";
+import { getFormattedDate } from "../../../shared/helpers";
+import Link from "next/link";
 
 export function Posts() {
   const posts = getSortedPostsData();
@@ -20,11 +22,16 @@ type PostListItemProps = {
 };
 
 function PostListItem({ post }: PostListItemProps) {
+  const { title, id, date } = post;
+  const formattedDate = getFormattedDate(date);
   return (
     <div>
-      <li className="my-5 flex justify-between">
-        <span>{post.title}</span>
-        <span>{post.date}</span>
+      <li className="test-2xl my-5">
+        <Link className="underline hover:text-black/70" href={`/posts/${id}`}>
+          {title}
+        </Link>
+        <br />
+        <p className="text-sm">{formattedDate}</p>
       </li>
     </div>
   );
