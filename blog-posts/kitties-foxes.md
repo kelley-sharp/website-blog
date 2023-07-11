@@ -1,6 +1,6 @@
 ---
-title: "A Sample Blog Post"
-date: "2023-07-10"
+title: "Kitties && Foxes"
+date: "7-10-2023"
 ---
 
 I would like to dedicate this sample blog post to all **Kitties** everywhere who aspire to be more like foxes.

@@ -1,6 +1,6 @@
 ---
 title: "Nature Rules"
-date: "2023-07-10"
+date: "7-10-2023"
 ---
 
 I fucking love the trees and sky and ocean and rocks and rivers and lakes and all the critters that live.
