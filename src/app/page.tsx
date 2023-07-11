@@ -1,7 +1,10 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <p className="m-auto text-blue-800 shadow-md">Ahoy and Welcome! 👋🏻</p>
+    <main className="mx-auto px-6">
+      <p className="mb-12 mt-12 text-center text-blue-800">Ahoy and Welcome! 👋🏻&nbsp;</p>
+      <span className="flex justify-center text-red-600">
+        I'm <span className="pl-1 font-bold text-black">Kelley</span>
+      </span>
     </main>
   );
 }
