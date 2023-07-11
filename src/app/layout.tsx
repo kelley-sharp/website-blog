@@ -16,7 +16,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <NavBar />
-        <MyProfilePic />
         {children}
       </body>
     </html>

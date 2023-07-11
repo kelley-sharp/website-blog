@@ -1,7 +1,9 @@
-import { Posts } from "src/app/components/posts";
+import { MyProfilePic } from "src/app/components/my-profile-pic";
+import { Posts } from "src/app/components/posts-list";
 export default function Home() {
   return (
     <main className="relative top-[130px] mx-auto px-6">
+      <MyProfilePic />
       <p className="mb-12 border-2 p-10 text-center text-3xl text-blue-800">
         Ahoy and Welcome! 👋🏻&nbsp;
       </p>

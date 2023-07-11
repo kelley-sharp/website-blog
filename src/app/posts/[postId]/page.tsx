@@ -2,6 +2,7 @@ import { getPostData, getSortedPostsData } from "../../../../lib/posts";
 import { notFound } from "next/navigation";
 import { getFormattedDate } from "../../../../shared/helpers";
 import Link from "next/link";
+import { MyProfilePic } from "src/app/components/my-profile-pic";
 
 export function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -43,8 +44,8 @@ export default async function Post({ params }: { params: { postId: string } }) {
   const formattedDate = getFormattedDate(date);
 
   return (
-    <main className="prose prose-xl mx-auto px-6">
-      <h1 className="mb-0 mt-4 text-3xl">{title}</h1>
+    <main className="prose prose-xl mx-auto my-10 px-6">
+      <h1 className="mb-0 mt-4 text-5xl">{title}</h1>
       <p className="mt-0">{formattedDate}</p>
       <article>
         <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
@@ -52,6 +53,7 @@ export default async function Post({ params }: { params: { postId: string } }) {
           <Link href="/">Back to home</Link>
         </p>
       </article>
+      <MyProfilePic classnames="fixed bottom-0 right-0" />
     </main>
   );
 }

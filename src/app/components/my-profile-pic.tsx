@@ -1,10 +1,14 @@
 import Image from "next/image";
+import classNames from "classnames";
 
-export function MyProfilePic() {
+type MyProfilePicProps = {
+  classnames?: string;
+};
+export function MyProfilePic({ classnames }: MyProfilePicProps) {
   return (
-    <section className="fixed top-0 mx-auto w-full">
+    <section className={classNames(classnames ? classnames : "fixed top-0 mx-auto w-full")}>
       <Image
-        className="mx-auto rounded-3xl"
+        className="mx-auto my-0"
         src="/images/me.png"
         width={200}
         height={200}
