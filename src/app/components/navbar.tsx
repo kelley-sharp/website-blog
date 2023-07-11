@@ -12,11 +12,11 @@ export function NavBar() {
     <nav className="sticky top-0 z-10 p-4 drop-shadow-xl">
       <div className="prose prose-xl mx-auto flex flex-col justify-between sm:flex-row">
         <h1 className="mb-2 grid place-content-center text-3xl font-bold md:mb-0">
-          <Link href="/" className="text-black/50 no-underline hover:text-black">
+          <Link href="/" className="text-black no-underline hover:text-white">
             Kelley Sharp
           </Link>
         </h1>
-        <div className="flex flex-row justify-center gap-4 align-middle text-4xl sm:justify-evenly ">
+        <div className="relative top-[180px] flex flex-row justify-center gap-4 align-middle text-4xl sm:justify-evenly md:static ">
           {socialMediaLinks.map((link) => {
             return <SocialMediaLink key={link.id} icon={link.icon} href={link.href} />;
           })}
