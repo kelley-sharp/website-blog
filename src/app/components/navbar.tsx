@@ -12,8 +12,9 @@ export function NavBar() {
     <nav className="sticky top-0 z-10 p-4 drop-shadow-xl">
       <div className="prose prose-xl mx-auto flex flex-col justify-between sm:flex-row">
         <h1 className="mb-2 grid place-content-center text-3xl font-bold md:mb-0">
-          <Link href="/" className="text-black no-underline hover:text-black/70">
+          <Link href="/" className="text-slate-500 no-underline hover:text-white/70">
             Kelley Sharp
+            <span> - Software Engineer</span>
           </Link>
         </h1>
         <div className="relative top-[180px] flex flex-row justify-center gap-4 align-middle text-4xl sm:justify-evenly md:static ">
@@ -34,7 +35,7 @@ type SocialMediaLinkProps = {
 function SocialMediaLink({ icon, href }: SocialMediaLinkProps) {
   return (
     <div>
-      <Link className="text-black/60 hover:text-black" href={href}>
+      <Link className="text-slate-500 hover:text-white/70" href={href}>
         {icon}
       </Link>
     </div>

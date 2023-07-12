@@ -1,19 +1,24 @@
-import Image from "next/image";
+"use client";
 import classNames from "classnames";
+import { CldImage } from "next-cloudinary";
 
 type MyProfilePicProps = {
   classnames?: string;
 };
 export function MyProfilePic({ classnames }: MyProfilePicProps) {
   return (
-    <section className={classNames(classnames ? classnames : "fixed top-0 mx-auto w-full")}>
-      <Image
+    <section
+      className={classNames(
+        classnames ? classnames : "fixed right-0 top-0 z-10 mx-auto w-full md:mt-32",
+      )}
+    >
+      <CldImage
+        src="blog/kcsome4jtteixh7zgxyc"
         className="mx-auto my-0"
-        src="/images/me.png"
-        width={200}
-        height={200}
+        width="200"
+        height="200"
         alt="Kelley Sharp"
-        priority={true}
+        quality="100"
       />
     </section>
   );
