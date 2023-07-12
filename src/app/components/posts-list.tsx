@@ -7,7 +7,7 @@ export function Posts() {
   const posts = getSortedPostsData();
   return (
     <section className="relative mx-auto mt-6 max-w-2xl">
-      <h2 className="text-4xl font-bold">Blog</h2>
+      <h2 className="text-4xl font-bold text-yellow-300">Blog</h2>
       <ul className="mb-10 w-full">
         {posts.map((post) => (
           <PostListItem key={post.id} post={post} />
@@ -27,11 +27,11 @@ function PostListItem({ post }: PostListItemProps) {
   return (
     <div>
       <li className="test-2xl my-5">
-        <Link className="underline hover:text-black/70" href={`/posts/${id}`}>
+        <Link className="text-slate-500 underline hover:text-white/70" href={`/posts/${id}`}>
           {title}
         </Link>
         <br />
-        <p className="text-sm">{formattedDate}</p>
+        <p className="text-sm text-white/70">{formattedDate}</p>
       </li>
     </div>
   );

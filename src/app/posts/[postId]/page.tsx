@@ -45,9 +45,9 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
   return (
     <main className="prose prose-xl mx-auto my-10 px-6">
-      <h1 className="mb-0 mt-4 text-5xl">{title}</h1>
-      <p className="mt-0">{formattedDate}</p>
-      <article>
+      <h1 className="mb-0 mt-4 text-5xl text-white/70">{title}</h1>
+      <p className="mt-0 text-white/70">{formattedDate}</p>
+      <article className="text-slate-500">
         <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
         <p>
           <Link href="/">Back to home</Link>
