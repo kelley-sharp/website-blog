@@ -9,6 +9,8 @@ I followed this [Next.js Blog Website tutorial](https://www.youtube.com/watch?v=
 
 Other resources I used:
 
+[🔗 Next.js App Router](https://nextjs.org/docs/app/building-your-application)
+
 [🔗 TailwindCSS with Next.js](https://tailwindcss.com/docs/guides/nextjs)
 
 [🔗 TailwindCSS Typography](https://tailwindcss.com/docs/typography-plugin)
@@ -27,11 +29,16 @@ Other resources I used:
 
 ### React 18 is awesome!
 
-Among the newest React features, components are now server components by default. We have to use the "use client" directive at the top of our component when we want to use a Context. I learned this when I implemented `next-themes` for light/dark theme control, which relies on using a Context behind the scenes. With React server components, bundle size does not necessarily grow with app size anymore (less javascript is sent to the client), like it does with traditional React client components, which is one of the reasons why this change is great for performance.
+Amoung the newest React features, components are now Server Components by default. We have to use the "use client" directive at the top of our component when we want to use a Context. I learned this when I implemented `next-themes` for light/dark theme control, which relies on using a Context behind the scenes. With React Server Components, bundle size does not necessarily grow with app size anymore. Less JavaScript is sent to the client than with traditional React Client Components, which is one of the reasons why this change is great for performance.
 
-### Some things about Next.js's new App directory architecture
+### Some things about Next.js's new App Directory Architecture
 
 The Next.js App Router, that released shortly after Next.js 13 came out, takes advantage of these new React features.
+This is my first experience using the App Router and I'm excited about all the advanced patterns and special files that can be utilized for things like loading and error UIs in nested routes, but apart from playing with the not-found file feature, at the time I'm writing this I've focused on learning the following concepts.
+
+#### File Structure
+
+I'm familiar with the preceeding Pages Router so I found it helpful to create a visual comparison of the file structures between the two.
 
 #### Caching Per Request
 
@@ -53,8 +60,8 @@ Dynamic Rendering is the App Router term for what was Server-Side Rendering (get
 
 Next.js uses static rendering by default and will render the entire route dynamically where dynamic functions or dynamic `fetch()` requests are detected.
 
-### Thoughts
+### Aspirations
 
-I'd like to optimize my Metadata
-I'd like to update this blog to support MDX
-I'd like to find a good syntax library
+- Add some loading UI
+- Optimize my Metadata (mostly for a nice social media sharing experience)
+- Update this blog to support MDX eventually (because adding React components in these posts sounds fun and useful)
