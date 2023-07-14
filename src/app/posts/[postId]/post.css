@@ -1,0 +1,5 @@
+.post-content a {
+  @apply no-underline;
+
+  @apply !text-pink-500;
+}

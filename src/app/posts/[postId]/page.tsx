@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getFormattedDate } from "../../../../shared/helpers";
 import Link from "next/link";
 import { MyProfilePic } from "src/app/components/my-profile-pic";
+import "./post.css";
 
 export function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -48,7 +49,7 @@ export default async function Post({ params }: { params: { postId: string } }) {
       <h1 className="mb-0 mt-4 text-5xl text-white/70">{title}</h1>
       <p className="mt-0 text-white/70">{formattedDate}</p>
       <article className="text-slate-500">
-        <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
+        <section className="post-content" dangerouslySetInnerHTML={{ __html: contentHtml }} />
         <p>
           <Link href="/">Back to home</Link>
         </p>
