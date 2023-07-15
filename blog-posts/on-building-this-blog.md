@@ -33,33 +33,6 @@ Amoung the newest React features, components are now Server Components by defaul
 
 ### Some things about Next.js's new App Directory Architecture
 
-The Next.js App Router, that released shortly after Next.js 13 came out, takes advantage of these new React features.
-This is my first experience using the App Router and I'm excited about all the advanced patterns and special files that can be utilized for things like loading and error UIs in nested routes, but apart from playing with the not-found file feature, at the time I'm writing this I've focused on learning the following concepts.
-
-#### File Structure
-
-I'm familiar with the preceeding Pages Router so I found it helpful to create a visual comparison of the file structures between the two.
-
-#### Caching Per Request
-
-The App Router Next.js has support for caching data on a per-request basis, not just an entire route segment. With [per-request caching](https://nextjs.org/docs/app/building-your-application/data-fetching/caching#per-request-caching), if we make the same request twice, the second request will be de-duped meaning we don't actually make the second request. This saves time to render (ttr). You can see this in my `page.tsx` of the `[postId]` leaf (segment without children nodes) under the `post` route where I make the request to `getSortedPostsData`.
-
-#### Server-side Routing, Client-side Navigation
-
-Although components are routed on the server side now, navigation is client-side. So when navigating between sibling components with the Next.js `Link` component (or the `useRouter()` hook), the root layout file content they share will persist (not be re-rendered). In my case, this means the app root layout (e.g. What renders my Nav Bar and Theme Toggle Button components on every page) will not need to be re-rendered when someone clicks on one of my blog post links.
-
-#### Rendering Strategy
-
-When using getServerSideProps (not a thing in App Router) in the Pages Router, the loading spinner shows until data for the entire route (segment) and it's sub-routes (subtrees and/or leafs) has loaded. In the App Router world some data can already be loaded and placeholder skeleton components can show where components with data pending will render once downloaded.
-
-#### Static Rendering vs Dynamic Rendering
-
-Static Rendering is the App Router term for what was Static Site Generation on the Pages Router. It means that both server and client components _can_ be pre-rendered on the server at **build time** and the result is cached and reused on subsequent requests.
-
-Dynamic Rendering is the App Router term for what was Server-Side Rendering (getServerSideProps()) in the Pages Router. This is when Server _and_ Client Components are not pre-rendered. They are rendered on the server at **request time** and the result is not cached.
-
-Next.js uses static rendering by default and will render the entire route dynamically where dynamic functions or dynamic `fetch()` requests are detected.
-
 ### Aspirations
 
 - Add some loading UI
