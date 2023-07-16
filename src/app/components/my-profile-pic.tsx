@@ -13,7 +13,8 @@ export function MyProfilePic({ classnames }: MyProfilePicProps) {
       )}
     >
       <CldImage
-        src="blog/kcsome4jtteixh7zgxyc"
+        src="blog/afsqeub2vc0rvfvkar56
+        "
         className="mx-auto my-0"
         width="200"
         height="200"

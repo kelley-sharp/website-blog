@@ -29,7 +29,7 @@ Other resources I used:
 
 ### React 18 is awesome!
 
-Amoung the newest React features, components are now Server Components by default. We have to use the "use client" directive at the top of our component when we want to use a Context. I learned this when I implemented `next-themes` for light/dark theme control, which relies on using a Context behind the scenes. With React Server Components, bundle size does not necessarily grow with app size anymore. Less JavaScript is sent to the client than with traditional React Client Components, which is one of the reasons why this change is great for performance.
+Amoung the newest React features, components are now Server Components by default. We have to use the "use client" directive at the top of our component when we want to use browser-only APIs, interactivity/event listeners, State/Lifecycle effects, or React Class Components. I learned this when I implemented `next-themes` for light/dark theme control, which relies on some of these things behind the scenes. With React Server Components, bundle size does not necessarily grow with app size anymore. Less JavaScript is sent to the client than with traditional React Client Components, which is one of the reasons why this change is great for performance. Other benefits include having access to the DB, and having better security by not exposing API keys and other secrets to the client.
 
 ### Some things about Next.js's new App Directory Architecture
 
