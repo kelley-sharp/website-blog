@@ -20,7 +20,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <NavBar />
           <ThemeToggleButton />
-          {children}
+          <main className="prose prose-xl prose-slate mx-auto px-4 dark:prose-invert md:px-6">
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

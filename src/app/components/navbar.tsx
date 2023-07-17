@@ -10,7 +10,7 @@ const socialMediaLinks = [
 export function NavBar() {
   return (
     <nav className="sticky top-0 z-10 bg-slate-700 p-4 ">
-      <div className="prose prose-xl mx-auto flex flex-col justify-between sm:flex-row">
+      <div className="prose prose-xl mx-auto flex flex-col justify-between sm:flex-row md:px-6">
         <h1 className="mb-2 grid place-content-center text-3xl font-bold md:mb-0">
           <Link href="/" className=" text-white/70 no-underline">
             Kelley Sharp

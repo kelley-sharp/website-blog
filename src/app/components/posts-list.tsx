@@ -1,14 +1,19 @@
-import { getSortedPostsData } from "../../../lib/posts";
-import { BlogPost } from "../../../types";
+import { getPostsMeta } from "../../../lib/posts";
+import { BlogPost, Meta } from "../../../types";
 import { getFormattedDate } from "../../../shared/helpers";
 import Link from "next/link";
 
-export function Posts() {
-  const posts = getSortedPostsData();
+export async function Posts() {
+  const posts = await getPostsMeta();
+
+  if (!posts) {
+    return <p className="mt-10 text-center">Sorry, no posts available.</p>;
+  }
+
   return (
     <section className="relative mx-auto mt-6 max-w-2xl">
       <h2 className="text-4xl font-bold text-yellow-300">Blog</h2>
-      <ul className="mb-10 w-full">
+      <ul className="mb-10 w-full list-none p-0">
         {posts.map((post) => (
           <PostListItem key={post.id} post={post} />
         ))}
@@ -18,7 +23,7 @@ export function Posts() {
 }
 
 type PostListItemProps = {
-  post: BlogPost;
+  post: Meta;
 };
 
 function PostListItem({ post }: PostListItemProps) {
