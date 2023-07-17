@@ -15,7 +15,7 @@ export async function Posts() {
       <h2 className="text-4xl font-bold text-yellow-300">Blog</h2>
       <ul className="mb-10 w-full list-none p-0">
         {posts.map((post) => (
-          <PostListItem key={post.id} post={post} />
+          <PostListItem key={post.postId} post={post} />
         ))}
       </ul>
     </section>
@@ -27,12 +27,12 @@ type PostListItemProps = {
 };
 
 function PostListItem({ post }: PostListItemProps) {
-  const { title, id, date } = post;
+  const { title, date } = post;
   const formattedDate = getFormattedDate(date);
   return (
     <div>
       <li className="test-2xl my-5">
-        <Link className="text-slate-500 underline hover:text-white/70" href={`/posts/${id}`}>
+        <Link className="text-slate-500 underline hover:text-white/70" href={`/posts/${title}`}>
           {title}
         </Link>
         <br />

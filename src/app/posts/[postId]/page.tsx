@@ -9,25 +9,23 @@ import "./post.css";
 export const revalidate = 0;
 
 type PostProps = {
-  params: {
-    postId: string;
-  };
+  sha: string;
 };
 
-// export async function generateStaticParams() {
-//   const posts = await getPostsMeta(); //deduped
+export async function generateStaticParams() {
+  const posts = await getPostsMeta(); //deduped
 
-//   if (!posts) {
-//     return [];
-//   }
+  if (!posts) {
+    return [];
+  }
 
-//   return posts.map((post) => ({
-//     postId: post.id,
-//   }));
-// }
+  return posts.map((post) => ({
+    sha: post.id,
+  }));
+}
 
-export async function generateMetadata({ params: { postId } }: PostProps) {
-  const post = await getPostByName(`${postId}.mdx`); //deduped! (request won't be sent twice)
+export async function generateMetadata({ sha }: PostProps) {
+  const post = await getPostByName(sha); //deduped! (request won't be sent twice)
 
   if (!post) {
     return {
@@ -38,8 +36,8 @@ export async function generateMetadata({ params: { postId } }: PostProps) {
   return { title: post.meta.title };
 }
 
-export default async function Post({ params: { postId } }: PostProps) {
-  const post = await getPostByName(`${postId}.mdx`); //deduped! (request won't be sent twice)
+export default async function Post({ sha }: PostProps) {
+  const post = await getPostByName(sha); //deduped! (request won't be sent twice)
 
   if (!post) notFound();
 
@@ -47,7 +45,7 @@ export default async function Post({ params: { postId } }: PostProps) {
 
   const formattedDate = getFormattedDate(meta.date);
 
-  const tags = meta.tags.map((tag, idx) => (
+  const tags = meta.tags?.map((tag, idx) => (
     <Link key={idx} href={`/tags/${tag}/`}>
       {tag}
     </Link>

@@ -1,60 +1,70 @@
 import { Octokit } from "@octokit/core";
 import { BlogPost, Meta } from "../types";
 import { compileMDX } from "next-mdx-remote/rsc";
-
-type FileTree = {
-  trees: [{ path: string; sha: string }];
-};
-
-type FrontMatter = {
-  title: string;
-  date: string;
-  tags: string[];
-};
+import rehypeAutolinkHeadings from "rehype-autolink-headings/lib";
+import rehypeHighlight from "rehype-highlight/lib";
+import rehypeSlug from "rehype-slug";
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
 
-export async function getPostByName(blogPostData: {
-  path: string;
-  sha: string;
-}): Promise<BlogPost | undefined> {
-  const res = await octokit.request("GET /repos/{owner}/{repo}/git/blobs/{file_sha}", {
-    owner: "kelley-sharp",
-    repo: "blog-posts",
-    file_sha: `${blogPostData.sha}`,
-    headers: {
-      "X-GitHub-Api-Version": "2022-11-28",
+export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
+  const res = await fetch(
+    `https://raw.githubusercontent.com/kelley-sharp/blog-posts/main/${fileName}`,
+    {
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
     },
-  });
+  );
 
-  if (res.status !== 200) return undefined;
+  if (!res.ok) return undefined;
 
-  const rawMdx = res.data.content;
+  const rawMdx = await res.text();
 
   if (rawMdx === "404: Not Found") return undefined;
 
-  const { frontMatter, content } = await compileMDX<FrontMatter>({
+  const { frontMatter, content } = await compileMDX<{
+    title: string;
+    date: string;
+    tags?: string[];
+  }>({
     source: rawMdx,
     options: {
       parseFrontmatter: true,
+      mdxOptions: {
+        rehypePlugins: [
+          rehypeHighlight,
+          rehypeSlug,
+          [
+            rehypeAutolinkHeadings,
+            {
+              behavior: "wrap",
+            },
+          ],
+        ],
+      },
     },
   });
 
-  const id = blogPostData.path.replace(/\.mdx$/, "");
+  const id = fileName.replace(/\.mdx$/, "");
 
   const blogPostObj: BlogPost = {
-    meta: { id, title: frontMatter.title, date: frontMatter.date, tags: frontMatter.tags },
+    meta: {
+      id,
+      title: frontMatter.title,
+      date: frontMatter.date,
+      tags: frontMatter.tags,
+    },
     content,
   };
-
   return blogPostObj;
 }
 
 export async function getPostsMeta(): Promise<Meta[] | undefined> {
-  console.log({ githubToken: process.env.GITHUB_TOKEN });
-
   const res = await octokit.request("GET /repos/{owner}/{repo}/git/trees/{tree_sha}?recursive=1", {
     owner: "kelley-sharp",
     repo: "blog-posts",
@@ -67,20 +77,24 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
 
   if (res.status !== 200) return undefined;
 
-  const repoFiletree: FileTree = { trees: [{ path: res.data.tree, sha: res.data.tree.sha }] };
+  const repoFiletree: { trees: [{ path: string }] } = { trees: res.data.tree };
 
-  const filesDataArray = repoFiletree.trees.map((tree) => {
-    path: tree.path;
-    sha: tree.sha;
+  const filesArray = repoFiletree.trees.map((tree) => {
+    if (tree.path.endsWith(".mdx")) {
+      return tree.path;
+    }
   });
-
   const posts: Meta[] = [];
 
-  for (const fileData of filesDataArray) {
-    const post = await getPostByName(fileData);
-    if (post) {
-      const { meta } = post;
-      posts.push(meta);
+  for (const file of filesArray) {
+    if (file !== undefined) {
+      const post = await getPostByName(file);
+      if (post) {
+        const { meta } = post;
+        posts.push(meta);
+      }
     }
   }
+
+  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
