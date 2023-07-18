@@ -10,6 +10,7 @@ const octokit = new Octokit({
 });
 
 export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
+  console.log({ fileName });
   const res = await fetch(
     `https://raw.githubusercontent.com/kelley-sharp/blog-posts/main/${fileName}`,
     {
@@ -18,6 +19,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
         Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         "X-GitHub-Api-Version": "2022-11-28",
       },
+      cache: "no-store",
     },
   );
 
@@ -27,7 +29,8 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
 
   if (rawMdx === "404: Not Found") return undefined;
 
-  const { frontMatter, content } = await compileMDX<{
+  // @ts-expect-error `frontMatter` is NOT camelcase
+  const { content, frontmatter } = await compileMDX<{
     title: string;
     date: string;
     tags?: string[];
@@ -55,9 +58,9 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
   const blogPostObj: BlogPost = {
     meta: {
       id,
-      title: frontMatter.title,
-      date: frontMatter.date,
-      tags: frontMatter.tags,
+      title: frontmatter.title,
+      date: frontmatter.date,
+      tags: frontmatter.tags,
     },
     content,
   };

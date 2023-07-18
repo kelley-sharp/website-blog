@@ -5,11 +5,13 @@ import Link from "next/link";
 import { MyProfilePic } from "src/app/components/my-profile-pic";
 import "./post.css";
 
-//only for development
+//for development set = 0
 export const revalidate = 0;
 
 type PostProps = {
-  sha: string;
+  params: {
+    postId: string;
+  };
 };
 
 export async function generateStaticParams() {
@@ -20,12 +22,12 @@ export async function generateStaticParams() {
   }
 
   return posts.map((post) => ({
-    sha: post.id,
+    id: post.id,
   }));
 }
 
-export async function generateMetadata({ sha }: PostProps) {
-  const post = await getPostByName(sha); //deduped! (request won't be sent twice)
+export async function generateMetadata({ params: { postId } }: PostProps) {
+  const post = await getPostByName(`${postId}.mdx`); //deduped! (request won't be sent twice)
 
   if (!post) {
     return {
@@ -36,8 +38,8 @@ export async function generateMetadata({ sha }: PostProps) {
   return { title: post.meta.title };
 }
 
-export default async function Post({ sha }: PostProps) {
-  const post = await getPostByName(sha); //deduped! (request won't be sent twice)
+export default async function Post({ params: { postId } }: PostProps) {
+  const post = await getPostByName(`${postId}.mdx`); //deduped! (request won't be sent twice)
 
   if (!post) notFound();
 

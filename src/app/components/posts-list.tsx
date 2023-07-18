@@ -12,10 +12,10 @@ export async function Posts() {
 
   return (
     <section className="relative mx-auto mt-6 max-w-2xl">
-      <h2 className="text-4xl font-bold text-yellow-300">Blog</h2>
+      <h2 className="text-4xl font-bold text-green-500">Blog</h2>
       <ul className="mb-10 w-full list-none p-0">
         {posts.map((post) => (
-          <PostListItem key={post.postId} post={post} />
+          <PostListItem key={post.id} post={post} />
         ))}
       </ul>
     </section>
