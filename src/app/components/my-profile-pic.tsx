@@ -9,7 +9,7 @@ export function MyProfilePic({ classnames }: MyProfilePicProps) {
   return (
     <section
       className={classNames(
-        classnames ? classnames : "fixed right-0 top-0 z-10 mx-auto w-full md:mt-32",
+        classnames ? classnames : " relative top-[200px] z-10 mx-auto w-full md:top-[265px]",
       )}
     >
       <CldImage
