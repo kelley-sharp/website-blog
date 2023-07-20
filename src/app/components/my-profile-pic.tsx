@@ -3,18 +3,13 @@ import classNames from "classnames";
 import { CldImage } from "next-cloudinary";
 
 type MyProfilePicProps = {
-  classnames?: string;
+  className?: string;
 };
-export function MyProfilePic({ classnames }: MyProfilePicProps) {
+export function MyProfilePic({ className }: MyProfilePicProps) {
   return (
-    <section
-      className={classNames(
-        classnames ? classnames : " relative top-[200px] z-10 mx-auto w-full md:top-[265px]",
-      )}
-    >
+    <section className={classNames(className)}>
       <CldImage
-        src="blog/afsqeub2vc0rvfvkar56
-        "
+        src="blog/afsqeub2vc0rvfvkar56"
         className="mx-auto my-0"
         width="200"
         height="200"

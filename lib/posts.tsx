@@ -1,16 +1,10 @@
-import { Octokit } from "@octokit/core";
 import { BlogPost, Meta } from "../types";
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings/lib";
 import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
-const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
-});
-
 export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
-  console.log({ fileName });
   const res = await fetch(
     `https://raw.githubusercontent.com/kelley-sharp/blog-posts/main/${fileName}`,
     {
@@ -20,6 +14,9 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
         "X-GitHub-Api-Version": "2022-11-28",
       },
       cache: "no-store",
+      next: {
+        revalidate: 0,
+      },
     },
   );
 
@@ -53,11 +50,11 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
     },
   });
 
-  const id = fileName.replace(/\.mdx$/, "");
+  const postId = fileName.replace("/index", "").replace(/\.mdx$/, "");
 
   const blogPostObj: BlogPost = {
     meta: {
-      id,
+      postId,
       title: frontmatter.title,
       date: frontmatter.date,
       tags: frontmatter.tags,
@@ -68,21 +65,28 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
 }
 
 export async function getPostsMeta(): Promise<Meta[] | undefined> {
-  const res = await octokit.request("GET /repos/{owner}/{repo}/git/trees/{tree_sha}?recursive=1", {
-    owner: "kelley-sharp",
-    repo: "blog-posts",
-    tree_sha: "main",
-    headers: {
-      Accept: "application/vnd.github+json",
-      "X-Github-Api-Version": "2022-11-28",
+  const res = await fetch(
+    "https://api.github.com/repos/kelley-sharp/blog-posts/git/trees/main?recursive=1",
+    {
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+      cache: "no-store",
+      next: {
+        revalidate: 0,
+      },
     },
-  });
+  );
 
-  if (res.status !== 200) return undefined;
+  if (!res.ok) return undefined;
 
-  const repoFiletree: { trees: [{ path: string }] } = { trees: res.data.tree };
+  const repoFiletree: { tree: [{ path: string }] } = await res.json();
 
-  const filesArray = repoFiletree.trees.map((tree) => {
+  console.log({ repoFiletreeTree: repoFiletree.tree });
+
+  const filesArray = repoFiletree.tree.map((tree) => {
     if (tree.path.endsWith(".mdx")) {
       return tree.path;
     }

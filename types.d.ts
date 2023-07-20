@@ -7,5 +7,5 @@ export type Meta = {
   title: string;
   date: string;
   tags?: string[];
-  id: string;
+  postId: string;
 };

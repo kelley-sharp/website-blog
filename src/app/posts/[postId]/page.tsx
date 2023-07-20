@@ -2,8 +2,8 @@ import { getPostsMeta, getPostByName } from "../../../../lib/posts";
 import { notFound } from "next/navigation";
 import { getFormattedDate } from "../../../../shared/helpers";
 import Link from "next/link";
-import { MyProfilePic } from "src/app/components/my-profile-pic";
 import "./post.css";
+import "server-only";
 
 //for development set = 0
 export const revalidate = 0;
@@ -21,13 +21,15 @@ export async function generateStaticParams() {
     return [];
   }
 
-  return posts.map((post) => ({
-    id: post.id,
+  const blogPosts = posts.map((post) => ({
+    postId: post.postId,
   }));
+
+  return blogPosts;
 }
 
 export async function generateMetadata({ params: { postId } }: PostProps) {
-  const post = await getPostByName(`${postId}.mdx`); //deduped! (request won't be sent twice)
+  const post = await getPostByName(`${postId}/index.mdx`); //deduped! (request won't be sent twice)
 
   if (!post) {
     return {
@@ -39,7 +41,7 @@ export async function generateMetadata({ params: { postId } }: PostProps) {
 }
 
 export default async function Post({ params: { postId } }: PostProps) {
-  const post = await getPostByName(`${postId}.mdx`); //deduped! (request won't be sent twice)
+  const post = await getPostByName(`${postId}/index.mdx`); //deduped! (request won't be sent twice)
 
   if (!post) notFound();
 
@@ -54,21 +56,19 @@ export default async function Post({ params: { postId } }: PostProps) {
   ));
 
   return (
-    <>
-      {/* <main className="prose prose-xl mx-auto my-10 px-6"> */}
+    <div className="post-content prose prose-2xl">
       <h2 className="mb-0 mt-4 text-5xl text-white/70">{meta.title}</h2>
       <p className="mt-0 text-white/70">{formattedDate}</p>
       <article className="text-slate-500">{content}</article>
 
       {/* previously section had: dangerouslySetInnerHTML={{ __html: contentHtml }} */}
-      <section className="post-content">
+      <section>
         <h3>Related:</h3>
         <div className="flex flex-row gap-4">{tags}</div>
       </section>
       <p>
         <Link href="/">Back to home</Link>
       </p>
-      <MyProfilePic classnames="fixed bottom-0 right-0" />
-    </>
+    </div>
   );
 }

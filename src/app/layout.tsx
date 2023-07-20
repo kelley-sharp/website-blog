@@ -1,4 +1,5 @@
 "use-client";
+import classNames from "classnames";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -18,9 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <NavBar />
           <ThemeToggleButton />
-          <main className="prose prose-xl prose-slate mx-auto px-4 dark:prose-invert md:px-6">
+          <main className={classNames("flex flex-col", "mx-auto max-w-screen-lg pb-6 md:mt-3")}>
+            <NavBar />
             {children}
           </main>
         </Providers>

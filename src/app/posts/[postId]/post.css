@@ -3,3 +3,7 @@
 
   @apply !text-pink-500;
 }
+
+.post-content h4 a {
+  @apply !text-slate-900;
+}
