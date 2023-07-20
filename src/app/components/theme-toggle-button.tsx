@@ -35,11 +35,11 @@ export function ThemeToggleButton() {
 
   return (
     <div className="flex min-w-fit items-center">
-      <label htmlFor={currentMode}>
-        Mode
+      <label htmlFor={currentMode} className="dark:text-white/70">
+        Theme
         <select
           value={currentMode}
-          className="ml-4 rounded-lg bg-gray-200"
+          className="ml-4 rounded-lg bg-gray-200 p-2 dark:bg-slate-500 dark:text-slate-900"
           onChange={(e) => handleSelectModeOption(e.currentTarget.value)}
         >
           {modes.map((mode) => {
