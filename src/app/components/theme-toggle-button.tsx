@@ -34,18 +34,23 @@ export function ThemeToggleButton() {
   }
 
   return (
-    <select
-      value={currentMode}
-      className="fixed bottom-0 rounded-lg bg-gray-200"
-      onChange={(e) => handleSelectModeOption(e.currentTarget.value)}
-    >
-      {modes.map((mode) => {
-        return (
-          <option key={mode} value={mode}>
-            {mode}
-          </option>
-        );
-      })}
-    </select>
+    <div className="flex min-w-fit items-center">
+      <label htmlFor={currentMode}>
+        Mode
+        <select
+          value={currentMode}
+          className="ml-4 rounded-lg bg-gray-200"
+          onChange={(e) => handleSelectModeOption(e.currentTarget.value)}
+        >
+          {modes.map((mode) => {
+            return (
+              <option key={mode} value={mode}>
+                {mode}
+              </option>
+            );
+          })}
+        </select>
+      </label>
+    </div>
   );
 }

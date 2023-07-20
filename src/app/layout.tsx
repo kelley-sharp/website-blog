@@ -19,7 +19,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <ThemeToggleButton />
           <main className={classNames("flex flex-col", "mx-auto max-w-screen-lg pb-6 md:mt-3")}>
             <NavBar />
             {children}
