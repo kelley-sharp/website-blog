@@ -12,14 +12,16 @@ export function CenterPiece() {
         "mx-auto",
       )}
     >
-      <p className="invisible md:visible">Welcome!</p>
-      <p className="invisible md:visible">👋🏻&nbsp;</p>
-      <p className="invisible text-2xl md:visible">
-        I blog about projects I'm building and the tech I'm using along the way.
-      </p>
-      <p className="invisible md:visible">🔉&nbsp;</p>
-      <p className="invisible text-2xl md:visible">I would love to hear from you!</p>
-      <MyProfilePic className="mx-auto w-full border-b-2 border-b-pink-500 md:border-none" />
+      <div className="flex flex-col pl-10 text-center">
+        <p className="invisible md:visible">Welcome!</p>
+        <p className="invisible md:visible">👋🏻</p>
+        <p className="invisible text-center text-2xl md:visible">
+          I write about projects I'm building and the tech I use along the way.
+        </p>
+        <p>📢</p>
+        <p className="invisible text-center text-2xl md:visible">Contact me!</p>
+      </div>
+      <MyProfilePic />
     </div>
   );
 }
