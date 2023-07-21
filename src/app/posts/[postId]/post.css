@@ -9,7 +9,7 @@
 }
 
 .post-content .title {
-  @apply pt-10 text-center text-5xl !text-slate-500 dark:!text-white/70;
+  @apply pt-20 text-center text-5xl !text-slate-500 dark:!text-white/70;
 }
 
 .post-content .date {

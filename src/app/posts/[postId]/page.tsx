@@ -57,10 +57,8 @@ export default async function Post({ params: { postId } }: PostProps) {
 
   return (
     <div className="post-content prose prose-2xl">
-      <div className="sticky top-0 bg-white pb-10 dark:bg-slate-800">
-        <h2 className="title">{meta.title}</h2>
-        <p className="date">{formattedDate}</p>
-      </div>
+      <h2 className="title">{meta.title}</h2>
+      <p className="date">{formattedDate}</p>
       <article className="text-slate-500">{content}</article>
       {meta.tags && (
         <section>
