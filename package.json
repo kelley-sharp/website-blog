@@ -6,14 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "preinstall": "npx only-allow pnpm",
-    "spelling-report": "mdspell -r **/*.md -n --en-us",
-    "mdspell-interactive": "mdspell **/*.md -n --en-us"
+    "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
-    "@octokit/core": "^5.0.0",
     "@types/node": "20.4.1",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
