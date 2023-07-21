@@ -1,6 +1,6 @@
-import { getPostsMeta } from "../../../lib/posts";
-import { Meta } from "../../../types";
-import { getFormattedDate } from "../../../shared/helpers";
+import { getPostsMeta } from "../../lib/posts";
+import { Meta } from "../../shared/types";
+import { getFormattedDate } from "../../shared/helpers";
 import Link from "next/link";
 
 type PostsListProps = {
@@ -10,12 +10,16 @@ export async function PostsList({ className }: PostsListProps) {
   const posts = await getPostsMeta();
 
   if (!posts) {
-    return <p className="mt-10 text-center">Sorry, no posts available.</p>;
+    return (
+      <p className="mt-10 text-center text-slate-500 dark:text-white/70">
+        Sorry, no posts available.
+      </p>
+    );
   }
 
   return (
     <>
-      <h2 className="text-4xl font-bold text-pink-500 dark:text-yellow-300">Blog</h2>
+      <h2 className="text-4xl font-bold text-pink-400 dark:text-yellow-300">Blog</h2>
       <section className={className}>
         <ul className="mb-10 w-full list-none p-0">
           {posts.map((post) => (

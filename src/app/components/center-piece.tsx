@@ -7,19 +7,21 @@ export function CenterPiece() {
       className={classNames(
         "invisible md:visible",
         "flex items-center",
-        "mb-12 rounded-xl border-2 border-pink-500 text-3xl text-blue-300 md:flex md:min-w-full md:gap-4",
-        "px-4 pt-2",
+        "mb-12 rounded-xl border-2 border-pink-500 text-3xl",
+        "text-blue-400 dark:text-blue-300 md:flex md:min-w-full",
+        "px-5 pt-5 md:gap-4",
         "mx-auto",
       )}
     >
-      <div className="flex flex-col pl-10 text-center">
+      <div className="flex flex-col gap-4 text-center">
         <p className="invisible md:visible">Welcome!</p>
         <p className="invisible md:visible">👋🏻</p>
         <p className="invisible text-center text-2xl md:visible">
-          I write about projects I'm building and the tech I use along the way.
+          I'm a Software Engineer. I write about projects I'm building and the tech I use along the
+          way.
         </p>
         <p>📢</p>
-        <p className="invisible text-center text-2xl md:visible">Contact me!</p>
+        <p className="invisible mb-5 text-center text-2xl md:visible">Contact me!</p>
       </div>
       <MyProfilePic />
     </div>

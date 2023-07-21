@@ -1,6 +1,6 @@
-import { getPostsMeta, getPostByName } from "../../../../lib/posts";
+import { getPostsMeta, getPostByName } from "../../../lib/posts";
 import { notFound } from "next/navigation";
-import { getFormattedDate } from "../../../../shared/helpers";
+import { getFormattedDate } from "../../../shared/helpers";
 import Link from "next/link";
 import "./post.css";
 import "server-only";
@@ -57,16 +57,18 @@ export default async function Post({ params: { postId } }: PostProps) {
 
   return (
     <div className="post-content prose prose-2xl">
-      <h2 className="mb-0 mt-4 text-5xl text-white/70">{meta.title}</h2>
-      <p className="mt-0 text-white/70">{formattedDate}</p>
+      <div className="sticky top-0 bg-white pb-10 dark:bg-slate-800">
+        <h2 className="title">{meta.title}</h2>
+        <p className="date">{formattedDate}</p>
+      </div>
       <article className="text-slate-500">{content}</article>
-
-      {/* previously section had: dangerouslySetInnerHTML={{ __html: contentHtml }} */}
-      <section>
-        <h3>Related:</h3>
-        <div className="flex flex-row gap-4">{tags}</div>
-      </section>
-      <p>
+      {meta.tags && (
+        <section>
+          <h3>Related:</h3>
+          <div className="flex flex-row gap-4">{tags}</div>
+        </section>
+      )}
+      <p className="text-center text-pink-500">
         <Link href="/">Back to home</Link>
       </p>
     </div>

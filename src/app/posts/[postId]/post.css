@@ -5,5 +5,13 @@
 }
 
 .post-content h4 a {
-  @apply !text-slate-900;
+  @apply !text-slate-800 dark:!text-white/70;
+}
+
+.post-content .title {
+  @apply pt-10 text-center text-5xl !text-slate-500 dark:!text-white/70;
+}
+
+.post-content .date {
+  @apply pt-4 text-center !text-slate-500 dark:!text-white/70;
 }

@@ -1,4 +1,4 @@
-import { BlogPost, Meta } from "../types";
+import { BlogPost, Meta } from "../shared/types";
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings/lib";
 import rehypeHighlight from "rehype-highlight/lib";

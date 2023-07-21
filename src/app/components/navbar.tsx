@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Link from "next/link";
 import { SocialMediaIcons } from "src/app/components/social-media-icons";
 import { ThemeToggleButton } from "src/app/components/theme-toggle-button";
@@ -10,11 +11,14 @@ export function NavBar() {
         <h1 className="mb-2 text-3xl font-bold md:mb-0">
           <Link
             href="/"
-            className=" text-slate-500 no-underline hover:text-slate-400 dark:text-white/70 dark:hover:text-white/70"
+            className={classNames(
+              " text-slate-500 no-underline hover:text-slate-400",
+              "dark:text-white/70 dark:hover:text-white/70",
+            )}
           >
             <div className="flex flex-col text-7xl md:text-center md:text-4xl">
               Kelley <br /> Sharp
-              <span className="pt-4 text-xl  md:text-center md:text-sm">Software Engineer</span>
+              <span className="md:text-md pt-4 text-xl md:text-center">Software Engineer</span>
             </div>
           </Link>
         </h1>
