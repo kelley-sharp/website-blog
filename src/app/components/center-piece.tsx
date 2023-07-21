@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import Link from "next/link";
 import { MyProfilePic } from "src/app/components/my-profile-pic";
 
 export function CenterPiece() {
@@ -21,7 +22,9 @@ export function CenterPiece() {
           way.
         </p>
         <p>📢</p>
-        <p className="invisible mb-5 text-center text-2xl md:visible">Contact me!</p>
+        <p className="invisible mb-5 text-center text-2xl md:visible">
+          <Link href="mailto:hello@kelleysharp.me">Contact me!</Link>
+        </p>
       </div>
       <MyProfilePic />
     </div>
