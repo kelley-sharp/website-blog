@@ -11,9 +11,11 @@ specifiers:
   classnames: ^2.3.2
   eslint: 8.44.0
   eslint-config-next: 13.4.9
+  highlight.js: ^11.8.0
   next: 13.4.10
   next-cloudinary: ^4.14.1
   next-mdx-remote: ^4.4.1
+  next-sitemap: ^4.1.8
   next-themes: ^0.2.1
   postcss: 8.4.25
   prettier: 2.8.8
@@ -37,9 +39,11 @@ dependencies:
   autoprefixer: 10.4.14_postcss@8.4.25
   classnames: 2.3.2
   eslint-config-next: 13.4.9_iqf7tbmerllfqanu4l3d6aqdn4
+  highlight.js: 11.8.0
   next: 13.4.10_biqbaboplfbrettd7655fr4n2y
   next-cloudinary: 4.14.1_next@13.4.10+react@18.2.0
   next-mdx-remote: 4.4.1_biqbaboplfbrettd7655fr4n2y
+  next-sitemap: 4.1.8_next@13.4.10
   next-themes: 0.2.1_ajgs2obdksmy6bafrtpl2cn7xi
   postcss: 8.4.25
   react: 18.2.0
@@ -96,6 +100,10 @@ packages:
     resolution: {integrity: sha512-6pBmapnL7G231NbNWhKbi+08HcpNASci7M3OmZWaUCQWUfdmo3au27HT3Zqg9NMsisfyer3t7o0RXzPQ4XlmMg==}
     dependencies:
       '@cloudinary/transformation-builder-sdk': 1.2.10
+    dev: false
+
+  /@corex/deepmerge/4.0.43:
+    resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
     dev: false
 
   /@eslint-community/eslint-utils/4.4.0_eslint@8.44.0:
@@ -2517,6 +2525,20 @@ packages:
       vfile-matter: 3.0.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /next-sitemap/4.1.8_next@13.4.10:
+    resolution: {integrity: sha512-XAXpBHX4o89JfMgvrm0zimlZwpu2iBPXHpimJMUrqOZSc4C2oB1Lv89mxuVON9IE8HOezaM+w4GjJxcYCuGPTQ==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      next: '*'
+    dependencies:
+      '@corex/deepmerge': 4.0.43
+      '@next/env': 13.4.10
+      fast-glob: 3.3.0
+      minimist: 1.2.8
+      next: 13.4.10_biqbaboplfbrettd7655fr4n2y
     dev: false
 
   /next-themes/0.2.1_ajgs2obdksmy6bafrtpl2cn7xi:

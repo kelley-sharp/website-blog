@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 import { getFormattedDate } from "../../../shared/helpers";
 import Link from "next/link";
 import "./post.css";
-import "server-only";
+// import "highlight.js/styles/arta.css";
+import "highlight.js/styles/base16/unikitty-light.css";
 
 //for development set = 0
-export const revalidate = 0;
+export const revalidate = 86400; //one day in seconds;
 
 type PostProps = {
   params: {
