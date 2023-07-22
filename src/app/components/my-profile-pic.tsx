@@ -1,22 +1,13 @@
 "use client";
-import classNames from "classnames";
 import { CldImage } from "next-cloudinary";
 
-type MyProfilePicProps = {
-  classnames?: string;
-};
-export function MyProfilePic({ classnames }: MyProfilePicProps) {
+export function MyProfilePic() {
   return (
-    <section
-      className={classNames(
-        classnames ? classnames : "fixed right-0 top-0 z-10 mx-auto w-full md:mt-32",
-      )}
-    >
+    <section className="border-b-2 border-b-pink-500 md:border-none">
       <CldImage
-        src="blog/kcsome4jtteixh7zgxyc"
-        className="mx-auto my-0"
-        width="200"
-        height="200"
+        src="blog/afsqeub2vc0rvfvkar56"
+        width="500"
+        height="500"
         alt="Kelley Sharp"
         quality="100"
       />

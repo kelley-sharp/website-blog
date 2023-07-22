@@ -1,19 +1,25 @@
 "use client";
+import { Switch } from "@headlessui/react";
+import classNames from "classnames";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-
-let modes = ["light", "dark"];
 
 export function ThemeToggleButton() {
   const [mounted, setMounted] = useState<boolean>(false);
   const { systemTheme, theme, setTheme } = useTheme();
-  const [currentMode, setCurrentMode] = useState<string>(systemTheme ? systemTheme : "light");
 
   // useEffect only runs on the client, so now we can safely show the UI as next-themes workaround for appDir bug
   useEffect(() => {
     setMounted(true);
-    if (systemTheme) {
-      modes.push("system");
+    if (typeof window !== "undefined" && window.localStorage) {
+      const storedTheme = localStorage.getItem("theme");
+      if (storedTheme) {
+        setTheme(storedTheme);
+      }
+    } else {
+      if (systemTheme) {
+        setTheme(systemTheme);
+      }
     }
   }, []);
 
@@ -21,31 +27,41 @@ export function ThemeToggleButton() {
     return null;
   }
 
-  function handleSelectModeOption(value: string) {
-    if (value === "system") {
-      if (systemTheme) {
-        setTheme(systemTheme);
-        setCurrentMode("system");
-      }
-    } else {
-      setTheme(value);
-      setCurrentMode(value);
+  function handleToggleTheme(value: boolean) {
+    if (value === true) {
+      setTheme("light");
+      localStorage.setItem("theme", "light");
+    } else if (value === false) {
+      setTheme("dark");
+      localStorage.setItem("theme", "dark");
     }
   }
 
   return (
-    <select
-      value={currentMode}
-      className="fixed bottom-0 rounded-lg bg-gray-200"
-      onChange={(e) => handleSelectModeOption(e.currentTarget.value)}
-    >
-      {modes.map((mode) => {
-        return (
-          <option key={mode} value={mode}>
-            {mode}
-          </option>
-        );
-      })}
-    </select>
+    <div className="flex items-center gap-4">
+      <p className="text-md font-bold text-slate-500">Theme</p>
+      <Switch
+        checked={theme === "light"}
+        onChange={(e) => handleToggleTheme(e)}
+        className={classNames(
+          theme === "dark" ? " bg-blue-300 " : "bg-blue-400",
+          "focus-none focus:ring-3 relative inline-flex h-6 w-11",
+          "flex-shrink-0 cursor-pointer rounded-full border-2",
+          "border-transparent transition-colors duration-200",
+          "ease-in-out focus:outline-none focus:ring-offset-2",
+        )}
+      >
+        <span className="sr-only">Toggle between dark and light theme</span>
+        <span
+          aria-hidden="true"
+          className={classNames(
+            theme === "dark" ? "translate-x-5 bg-slate-800" : "translate-x-0 bg-white",
+            "pointer-events-none inline-block h-5 w-5 transform",
+            "rounded-full shadow ring-0 transition duration-200",
+            "ease-in-out",
+          )}
+        />
+      </Switch>
+    </div>
   );
 }
