@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 
 /**
  * use in client cli (like Insomnia) after 'run build' and 'run start' to revalidate on demand
- * api/revalidate?path=/&secret=MY_SECRET_TOKEN
+ * endpoint: http://localhost:3000/api/revalidate?path=/&secret=MY_SECRET_TOKEN
  */
 
 export async function GET(request: NextRequest) {

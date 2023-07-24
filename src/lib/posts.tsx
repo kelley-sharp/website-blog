@@ -14,9 +14,6 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
         "X-GitHub-Api-Version": "2022-11-28",
       },
       cache: "no-store",
-      next: {
-        revalidate: 0,
-      },
     },
   );
 
@@ -26,7 +23,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
 
   if (rawMdx === "404: Not Found") return undefined;
 
-  // @ts-expect-error `frontMatter` is NOT camelcase
+  //  @ts-expect-error `frontMatter` is NOT camelcase
   const { content, frontmatter } = await compileMDX<{
     title: string;
     date: string;
@@ -74,17 +71,12 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
         "X-GitHub-Api-Version": "2022-11-28",
       },
       cache: "no-store",
-      next: {
-        revalidate: 0,
-      },
     },
   );
 
   if (!res.ok) return undefined;
 
   const repoFiletree: { tree: [{ path: string }] } = await res.json();
-
-  console.log({ repoFiletreeTree: repoFiletree.tree });
 
   const filesArray = repoFiletree.tree.map((tree) => {
     if (tree.path.endsWith(".mdx")) {
