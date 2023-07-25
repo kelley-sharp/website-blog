@@ -3,7 +3,7 @@ import { getPostsMeta } from "../../../lib/posts";
 // import ListItem from "@/app/components/list"
 import Link from "next/link";
 
-export const revalidate = 86400; //one day in seconds;
+export const revalidate = 0; //86400 one day in seconds;
 
 type TagProps = {
   params: {
