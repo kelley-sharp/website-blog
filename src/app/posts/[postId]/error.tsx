@@ -18,7 +18,7 @@ export default function Error({
     <div className="m-10 flex flex-col gap-4 text-center">
       <h2 className="text-slate-500 dark:text-white/70">Something went wrong!</h2>
       <button
-        className="rounded-xl border-2 border-blue-300 px-4 py-2 text-black hover:text-slate-400"
+        className="w=[100px] rounded-xl border-2 border-blue-300 px-4 py-2 text-black hover:text-slate-400"
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => reset()
