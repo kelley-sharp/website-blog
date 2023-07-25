@@ -13,8 +13,8 @@ export function SocialMediaIcons() {
     <div
       className={classNames(
         "flex flex-row items-center gap-10 md:justify-end",
-        "text-6xl",
-        "md:gap-4 md:text-4xl",
+        "my-8 text-5xl md:my-0 md:text-6xl",
+        "justify-center md:gap-4 md:text-4xl",
       )}
     >
       {socialMediaIcons.map((link) => {

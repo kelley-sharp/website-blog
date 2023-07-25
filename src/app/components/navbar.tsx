@@ -7,7 +7,6 @@ export function NavBar() {
   return (
     <nav className="min-w-md flex p-5 md:p-10">
       <div className="flex w-full flex-col md:flex-row md:justify-between md:px-6">
-        <ThemeToggleButton />
         <h1 className="mb-2 font-bold md:mb-0">
           <Link
             href="/"
@@ -21,6 +20,7 @@ export function NavBar() {
             </div>
           </Link>
         </h1>
+        <ThemeToggleButton />
         <SocialMediaIcons />
       </div>
     </nav>

@@ -38,7 +38,7 @@ export function ThemeToggleButton() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 pb-5 md:flex-row md:pb-0">
+    <div className="mb-2 mt-5 flex flex-col items-center justify-center gap-2 md:mb-0 md:mt-0 md:flex-row md:gap-4">
       <p className="text-md font-bold text-slate-500">Theme</p>
       <Switch
         checked={theme === "light"}
