@@ -1,7 +1,13 @@
+import { CenterPiece } from "src/app/components/center-piece";
+import { PostsList } from "src/app/components/posts-list";
+
+export const revalidate = 86400; //one day in seconds
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <p className="m-auto text-blue-800 shadow-md">Ahoy and Welcome! 👋🏻</p>
-    </main>
+    <>
+      <CenterPiece />
+      <PostsList />
+    </>
   );
 }

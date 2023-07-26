@@ -1,18 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  /**
+   * content provides an array of globs letting TailwindCSS know which files it
+   * should analyze for purging extra classes not used in your application.
+   * If we didn't configure this, the result would be every single
+   * class TailwindCSS has to offer being shipped with our application.
+   **/
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{tsx,mdx}",
+    "./src/components/**/*.{tsx,mdx}",
+    "./src/app/**/*.{tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+    extend: {},
   },
   plugins: [require("@tailwindcss/typography")],
 };
