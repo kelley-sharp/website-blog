@@ -8,6 +8,10 @@
   @apply !text-slate-800 dark:!text-white/70;
 }
 
+.post-content h3 a {
+  @apply !text-slate-800 dark:!text-white/70;
+}
+
 .post-content .title {
   @apply pt-8 text-center text-5xl !text-slate-500 dark:!text-white/70 md:pt-20;
 }
@@ -17,5 +21,5 @@
 }
 
 .post-content {
-  @apply prose-code:before:content-none prose-code:after:content-none;
+  @apply prose-strong:!text-blue-400 prose-code:font-mono prose-code:!text-slate-500 prose-code:before:content-none prose-code:after:content-none prose-strong:dark:!text-blue-300 prose-code:dark:!text-white/70;
 }

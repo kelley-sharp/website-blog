@@ -63,7 +63,7 @@ export default async function Post({ params: { postId } }: PostProps) {
       <article className="text-slate-500">{content}</article>
       {meta.tags && (
         <section>
-          <h3>Related:</h3>
+          <h3 className="text-slate-500 dark:text-white/70">Related:</h3>
           <div className="flex flex-row gap-4">{tags}</div>
         </section>
       )}
