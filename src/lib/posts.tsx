@@ -23,7 +23,6 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
 
   if (rawMdx === "404: Not Found") return undefined;
 
-  //  @ts-expect-error `frontMatter` is NOT camelcase
   const { content, frontmatter } = await compileMDX<{
     title: string;
     date: string;

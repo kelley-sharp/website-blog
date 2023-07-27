@@ -1,5 +1,6 @@
 export type BlogPost = {
   meta: Meta;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   content: ReactElement<any, string | JSXElementConstructor<any>>;
 };
 
