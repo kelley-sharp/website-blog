@@ -1,9 +1,9 @@
 import PostListItem from "src/app/components/post-list-item";
 import { getPostsMeta } from "../../../lib/posts";
-// import ListItem from "@/app/components/list"
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
-export const revalidate = 0; //86400 one day in seconds;
+export const revalidate = 86400; //86400 one day in seconds;
 
 type TagProps = {
   params: {
@@ -40,16 +40,7 @@ export default async function TagPostList({ params: { tag } }: TagProps) {
   const tagPosts = posts.filter((post) => post.tags?.includes(tag));
 
   if (!tagPosts.length) {
-    return (
-      <div>
-        <p className="mt-10 text-center text-slate-500 dark:text-white/70">
-          Sorry, no related posts available.
-        </p>
-        <Link href="/" className="mt-4 text-pink-500">
-          Back to home
-        </Link>
-      </div>
-    );
+    return notFound();
   }
   return (
     <>

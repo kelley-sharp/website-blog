@@ -36,7 +36,9 @@ export function CenterPiece() {
 
         <p>📢</p>
         <p className="mb-5">
-          <Link href="mailto:hello@kelleysharp.me">Contact me!</Link>
+          <Link href="mailto:hello@kelleysharp.me" passHref legacyBehavior>
+            <a target="_blank">Contact me!</a>
+          </Link>
         </p>
         {isMobile && <MyProfilePic />}
       </div>

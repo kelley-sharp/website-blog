@@ -13,9 +13,8 @@ export default function PostListItem({ post }: PostListItemProps) {
     <div>
       <li className="text-1xl my-5 pt-0 md:text-2xl">
         <Link
-          className="text-slate-500 underline hover:text-slate-400 dark:hover:text-white/70"
           href={`/posts/${postId}`}
-          prefetch={false}
+          className="text-slate-500 underline hover:text-slate-400 dark:hover:text-white/70"
         >
           {title}
         </Link>

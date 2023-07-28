@@ -32,8 +32,10 @@ type SocialMediaIconProps = {
 function SocialMediaIcon({ icon, href }: SocialMediaIconProps) {
   return (
     <div>
-      <Link className="text-slate-500 hover:text-slate-400 dark:hover:text-white/70" href={href}>
-        {icon}
+      <Link href={href} passHref legacyBehavior>
+        <a className="text-slate-500 hover:text-slate-400 dark:hover:text-white/70" target="_blank">
+          {icon}
+        </a>
       </Link>
     </div>
   );

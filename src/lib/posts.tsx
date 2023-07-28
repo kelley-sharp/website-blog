@@ -6,7 +6,7 @@ import rehypeSlug from "rehype-slug";
 
 export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
   const res = await fetch(
-    `https://raw.githubusercontent.com/kelley-sharp/blog-posts/main/${fileName}`,
+    `https://raw.githubusercontent.com/kelley-sharp/blog-posts/main/${fileName}2`,
     {
       headers: {
         Accept: "application/vnd.github+json",
