@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import customColors from "./shared/custom-colors";
+
 module.exports = {
   /**
    * content provides an array of globs letting TailwindCSS know which files it
@@ -13,7 +15,7 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    colors: { ...customColors },
   },
   plugins: [require("@tailwindcss/typography")],
 };
