@@ -1,6 +1,6 @@
 "use-client";
 import classNames from "classnames";
-import "./globals.css";
+import "src/shared/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NavBar } from "src/app/components/navbar";

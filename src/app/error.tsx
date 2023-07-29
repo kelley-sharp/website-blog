@@ -15,11 +15,11 @@ export default function ErrorPage({
 
   return (
     <div className="align-center m-10 flex flex-col items-center gap-4">
-      <h2 className="text-center text-slate-500 dark:text-white/70">
+      <h2 className="text-center text-nuetralText-dark dark:text-lightText">
         Whoops! Something went wrong!
       </h2>
       <button
-        className="w-[150px] rounded-lg border-2 border-blue-300 px-4 py-2 font-bold text-slate-500 hover:text-slate-400 dark:text-white/70"
+        className="w-[150px] rounded-lg border-2 border-accent2-light px-4 py-2 font-bold text-nuetralText-dark hover:text-nuetralText-light dark:text-lightText"
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => reset()

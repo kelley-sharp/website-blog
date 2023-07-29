@@ -11,8 +11,8 @@ export function NavBar() {
           <Link
             href="/"
             className={classNames(
-              "text-slate-500 no-underline hover:text-slate-400",
-              "dark:text-white/70 dark:hover:text-white/70",
+              "text-nuetralText-dark no-underline hover:text-nuetralText-light",
+              "dark:text-lightText dark:hover:text-lightText",
             )}
           >
             <div className="text-center text-6xl md:text-4xl">

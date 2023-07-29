@@ -5,10 +5,10 @@ export default function NotFound() {
   return (
     <div className="flex h-screen flex-col items-center gap-4">
       <NotFoundPage message="Hmmm...page not found." globalNotFound />
-      <p className="text-slate-500">
+      <p className="text-nuetralText-dark">
         Try{" "}
         <Link
-          className="m-2 text-center font-bold text-pink-500 no-underline"
+          className="m-2 text-center font-bold text-accent1-dark no-underline"
           href="https://kelleysharp.me"
         >
           kelleysharp.me

@@ -14,12 +14,12 @@ export default function PostListItem({ post }: PostListItemProps) {
       <li className="text-1xl my-5 pt-0 md:text-2xl">
         <Link
           href={`/posts/${postId}`}
-          className="text-slate-500 underline hover:text-slate-400 dark:hover:text-white/70"
+          className="text-nuetralText-dark underline hover:text-nuetralText-light dark:hover:text-lightText"
         >
           {title}
         </Link>
         <br />
-        <p className="text-md text-slate-400 dark:text-white/70">{formattedDate}</p>
+        <p className="text-md text-nuetralText-light dark:text-lightText">{formattedDate}</p>
       </li>
     </div>
   );
