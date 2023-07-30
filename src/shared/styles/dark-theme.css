@@ -1,0 +1,14 @@
+.hljs {
+  @apply bg-darkBg;
+}
+/*potential further customization*/
+
+/* .hljs .hljs-name {
+  @apply prose-code:text-accent1-light;
+}
+.hljs-string {
+  @apply !text-accent3;
+}
+.hljs-attr {
+  @apply !text-accent2-light;
+} */

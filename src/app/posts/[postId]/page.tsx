@@ -5,7 +5,7 @@ import Link from "next/link";
 import "./post.css";
 
 //for development set = 0
-export const revalidate = 0; //86400 one day in seconds;
+export const revalidate = 86400; //86400 one day in seconds;
 
 type PostProps = {
   params: {

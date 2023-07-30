@@ -13,7 +13,7 @@ export function SocialMediaIcons() {
     <div
       className={classNames(
         "flex flex-row items-center gap-10 md:justify-end",
-        "my-8 text-5xl md:my-0 md:text-6xl",
+        "md:text-md my-8 text-5xl md:my-0",
         "justify-center md:gap-4 md:text-4xl",
       )}
     >
@@ -33,7 +33,10 @@ function SocialMediaIcon({ icon, href }: SocialMediaIconProps) {
   return (
     <div>
       <Link href={href} passHref legacyBehavior>
-        <a className="text-nuetralText-dark hover:text-nuetralText-light dark:hover:text-lightText" target="_blank">
+        <a
+          className="text-nuetralText-dark hover:text-nuetralText-light dark:hover:text-lightText"
+          target="_blank"
+        >
           {icon}
         </a>
       </Link>

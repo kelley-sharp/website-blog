@@ -19,9 +19,9 @@ export function CenterPiece() {
   return (
     <div
       className={classNames(
-        "flex items-center",
+        "flex flex-col items-center",
         "mb-12 rounded-xl border-2 border-accent1-dark text-2xl",
-        "text-accent2-dark dark:text-accent2-light md:flex md:min-w-full",
+        "text-accent2-dark dark:text-accent2-light md:min-w-full md:flex-row",
         "px-5 pt-5 md:gap-4",
         "mx-auto",
       )}

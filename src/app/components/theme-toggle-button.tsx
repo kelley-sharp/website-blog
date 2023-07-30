@@ -47,8 +47,10 @@ export function ThemeToggleButton() {
         {theme === "light" ? <LightThemeLazy /> : null}
         {theme === "dark" ? <DarkThemeLazy /> : null}
       </Suspense>
-      <div className="mb-2 mt-5 flex flex-col items-center justify-center gap-2 md:mx-12 md:mb-0 md:mt-0 md:flex-row md:gap-4">
-        <p className="text-md font-bold text-nuetralText-dark">Theme</p>
+      <div className="mb-2 mt-5 flex flex-col items-center justify-center gap-2 pb-10 md:mb-0 md:mt-0 md:flex-row md:gap-4 md:pb-0">
+        <p className="text-md font-bold text-nuetralText-dark">
+          {theme === "dark" ? "Dark" : "Light"}
+        </p>
         <Switch
           checked={theme === "light"}
           onChange={(e) => handleToggleTheme(e)}
