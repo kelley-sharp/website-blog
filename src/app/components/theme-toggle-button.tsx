@@ -2,7 +2,7 @@
 import { Switch } from "@headlessui/react";
 import classNames from "classnames";
 import { useTheme } from "next-themes";
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense } from "react";
 
 //lazy here means don't import the file until rendered
 const LightThemeLazy = lazy(() => import("src/shared/styles/light-theme"));
@@ -13,12 +13,9 @@ type ThemeToggleButtonProps = {
 };
 
 export function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
-  const [mounted, setMounted] = useState<boolean>(false);
   const { systemTheme, theme, setTheme } = useTheme();
 
-  // useEffect only runs on the client, so now we can safely show the UI as next-themes workaround for appDir bug
   useEffect(() => {
-    setMounted(true);
     if (typeof window !== "undefined" && window.localStorage) {
       const storedTheme = localStorage.getItem("theme");
       if (storedTheme) {
@@ -30,10 +27,6 @@ export function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
       }
     }
   }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   function handleToggleTheme(value: boolean) {
     if (value === true) {

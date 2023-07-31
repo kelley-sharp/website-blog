@@ -7,7 +7,7 @@ export function NavBar() {
   return (
     <nav className="min-w-md mb-2 mt-5 flex md:my-10">
       <div className="grid w-full grid-cols-12 items-center">
-        <ThemeToggleButton className="col-span-full hidden md:col-span-3 md:block" />
+        <ThemeToggleButton className="col-span-full hidden md:col-span-3 md:flex" />
         <LogoHeader className="col-span-full md:col-span-6" />
         <SocialMediaIcons className="col-span-full md:col-span-3" />
       </div>

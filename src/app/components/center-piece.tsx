@@ -1,4 +1,3 @@
-"use client";
 import classNames from "classnames";
 import Link from "next/link";
 import { MyProfilePic } from "src/app/components/my-profile-pic";
