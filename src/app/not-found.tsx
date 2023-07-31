@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="flex h-screen flex-col items-center gap-4">
       <NotFoundPage message="Hmmm...page not found." globalNotFound />
-      <p className="text-nuetralText-dark">
+      <p className="text-neutral-dark">
         Try{" "}
         <Link
           className="m-2 text-center font-bold text-accent1-dark no-underline"

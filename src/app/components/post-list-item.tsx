@@ -16,14 +16,14 @@ export default function PostListItem({ post }: PostListItemProps) {
         <Link
           href={`/posts/${postId}`}
           className={classNames(
-            "text-nuetralText-dark underline hover:text-nuetralText-light",
+            "text-neutral-dark underline hover:text-neutral-light",
             "dark:hover:text-lightText",
           )}
         >
           {title}
         </Link>
         <br />
-        <p className="text-md text-nuetralText-light dark:text-lightText">{formattedDate}</p>
+        <p className="text-md text-neutral-light dark:text-lightText">{formattedDate}</p>
       </li>
     </div>
   );

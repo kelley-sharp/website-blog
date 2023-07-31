@@ -50,9 +50,7 @@ export function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
           className,
         )}
       >
-        <p className="text-md font-bold text-nuetralText-dark">
-          {theme === "dark" ? "Dark" : "Light"}
-        </p>
+        <p className="text-md font-bold text-neutral-dark">{theme === "dark" ? "Dark" : "Light"}</p>
         <Switch
           checked={theme === "light"}
           onChange={(e) => handleToggleTheme(e)}
@@ -70,8 +68,8 @@ export function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
             aria-hidden="true"
             className={classNames(
               theme === "dark"
-                ? "translate-x-8 bg-darkBg md:translate-x-5"
-                : "translate-x-0 bg-lightBg",
+                ? "bg-dark translate-x-8 md:translate-x-5"
+                : "translate-x-0 bg-white",
               "pointer-events-none inline-block transform md:h-5 md:w-5",
               "rounded-full shadow ring-0 transition duration-200",
               "h-7 w-7 ease-in-out",

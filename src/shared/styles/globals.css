@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-lightBg dark:bg-darkBg;
+    @apply bg-white dark:bg-dark;
   }
 
   html {

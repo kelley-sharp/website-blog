@@ -5,24 +5,24 @@
 }
 
 .post-content h4 a {
-  @apply !text-code-dark dark:!text-lightText;
+  @apply !text-dark dark:!text-light;
 }
 
 .post-content h3 a {
-  @apply !text-nuetralText-dark dark:!text-lightText;
+  @apply !text-neutral-dark dark:!text-light;
 }
 
 .post-content .title {
-  @apply pt-8 text-center text-5xl !text-nuetralText-dark dark:!text-lightText md:pt-20;
+  @apply pt-8 text-center text-5xl !text-neutral-dark dark:!text-light md:pt-20;
 }
 
 .post-content .date {
-  @apply pt-4 text-center !text-nuetralText-dark dark:!text-lightText;
+  @apply pt-4 text-center !text-neutral-dark dark:!text-light;
 }
 
 .post-content {
   @apply prose-strong:text-accent2-dark;
-  @apply prose-code:text-code-dark prose-strong:dark:text-accent2-light prose-code:dark:text-code-light;
+  @apply prose-code:text-dark prose-strong:dark:text-accent2-light prose-code:dark:text-white;
   @apply prose-code:font-mono prose-code:before:content-none prose-code:after:content-none;
-  @apply prose-pre:bg-lightBg prose-pre:dark:bg-code-dark;
+  @apply prose-pre:bg-white prose-pre:dark:bg-dark;
 }

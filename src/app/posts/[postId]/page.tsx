@@ -58,10 +58,10 @@ export default async function Post({ params: { postId } }: PostProps) {
     <div className="post-content prose prose-2xl">
       <h2 className="title">{meta.title}</h2>
       <p className="date">{formattedDate}</p>
-      <article className="text-nuetralText-dark">{content}</article>
+      <article className="text-neutral-dark">{content}</article>
       {meta.tags && (
         <section>
-          <h3 className="text-nuetralText-dark dark:text-lightText">Related</h3>
+          <h3 className="text-neutral-dark dark:text-lightText">Related</h3>
           <div className="flex flex-row gap-4">{tags}</div>
         </section>
       )}

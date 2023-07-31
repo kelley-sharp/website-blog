@@ -9,7 +9,7 @@ export async function PostsList({ className }: PostsListProps) {
 
   if (!posts) {
     return (
-      <p className="mt-10 text-center text-nuetralText-dark dark:text-lightText">
+      <p className="mt-10 text-center text-neutral-dark dark:text-lightText">
         Sorry, no posts available.
       </p>
     );

@@ -40,7 +40,7 @@ function SocialMediaIcon({ icon, href }: SocialMediaIconProps) {
     <div>
       <Link href={href} passHref legacyBehavior>
         <a
-          className="text-nuetralText-dark hover:text-nuetralText-light dark:hover:text-lightText"
+          className="text-neutral-dark hover:text-neutral-light dark:hover:text-lightText"
           target="_blank"
         >
           {icon}
