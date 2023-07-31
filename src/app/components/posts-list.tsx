@@ -17,7 +17,7 @@ export async function PostsList({ className }: PostsListProps) {
 
   return (
     <>
-      <h2 className="text-4xl font-bold text-accent1-light dark:text-accent3">Blog</h2>
+      <h2 className="text-3xl font-bold text-accent1-light dark:text-accent3 md:text-4xl">Blog</h2>
       <section className={className}>
         <ul className="mb-10 w-full list-none p-0">
           {posts.map((post) => (

@@ -11,7 +11,7 @@ export default function PostListItem({ post }: PostListItemProps) {
   const formattedDate = getFormattedDate(date);
   return (
     <div>
-      <li className="text-1xl my-5 pt-0 md:text-2xl">
+      <li className="my-8 pt-0 text-xl md:my-5 md:text-2xl">
         <Link
           href={`/posts/${postId}`}
           className="text-nuetralText-dark underline hover:text-nuetralText-light dark:hover:text-lightText"

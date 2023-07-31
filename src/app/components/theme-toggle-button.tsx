@@ -8,7 +8,11 @@ import { useEffect, useState, lazy, Suspense } from "react";
 const LightThemeLazy = lazy(() => import("src/shared/styles/light-theme"));
 const DarkThemeLazy = lazy(() => import("src/shared/styles/dark-theme"));
 
-export function ThemeToggleButton() {
+type ThemeToggleButtonProps = {
+  className?: string;
+};
+
+export function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
   const [mounted, setMounted] = useState<boolean>(false);
   const { systemTheme, theme, setTheme } = useTheme();
 
@@ -47,7 +51,12 @@ export function ThemeToggleButton() {
         {theme === "light" ? <LightThemeLazy /> : null}
         {theme === "dark" ? <DarkThemeLazy /> : null}
       </Suspense>
-      <div className="mb-2 mt-5 flex flex-col items-center justify-center gap-2 pb-10 md:mb-0 md:mt-0 md:flex-row md:gap-4 md:pb-0">
+      <div
+        className={classNames(
+          "mb-2 mt-5 flex flex-col items-center justify-start gap-2 pb-10 md:mb-0 md:mt-0 md:flex-row md:gap-4 md:pb-0",
+          className,
+        )}
+      >
         <p className="text-md font-bold text-nuetralText-dark">
           {theme === "dark" ? "Dark" : "Light"}
         </p>

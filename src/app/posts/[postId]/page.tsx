@@ -49,7 +49,7 @@ export default async function Post({ params: { postId } }: PostProps) {
   const formattedDate = getFormattedDate(meta.date);
 
   const tags = meta.tags?.map((tag, idx) => (
-    <Link key={idx} href={`/tags/${tag}/`} target="_blank">
+    <Link key={idx} href={`/tags/${tag}/`}>
       {tag}
     </Link>
   ));

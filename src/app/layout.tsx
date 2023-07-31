@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NavBar } from "src/app/components/navbar";
 import { Providers } from "src/app/providers";
+import { ThemeToggleButton } from "src/app/components/theme-toggle-button";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,14 +24,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <main
             className={classNames(
-              "flex flex-col",
-              "mx-5 max-w-screen-lg md:mx-auto",
+              "mx-4 flex flex-col",
+              "max-w-screen-lg md:mx-auto",
               "pb-6 md:mt-3",
             )}
           >
             <NavBar />
             {children}
           </main>
+          <ThemeToggleButton className="block md:hidden" />
         </Providers>
       </body>
     </html>
