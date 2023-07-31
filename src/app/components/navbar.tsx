@@ -24,7 +24,8 @@ function LogoHeader({ className }: LogoHeaderProps) {
       <Link
         href="/"
         className={classNames(
-          "text-nuetralText-dark hover:text-nuetralText-light dark:text-nuetralText-light dark:hover:text-lightText",
+          "text-nuetralText-dark hover:text-nuetralText-light",
+          "dark:text-nuetralText-light dark:hover:text-lightText",
         )}
       >
         <div className="text-center text-6xl md:text-4xl">

@@ -1,4 +1,5 @@
 "use client";
+import classNames from "classnames";
 import { useEffect } from "react";
 
 export default function ErrorPage({
@@ -19,7 +20,11 @@ export default function ErrorPage({
         Whoops! Something went wrong!
       </h2>
       <button
-        className="w-[150px] rounded-lg border-2 border-accent2-light px-4 py-2 font-bold text-nuetralText-dark hover:text-nuetralText-light dark:text-lightText"
+        className={classNames(
+          "w-[150px] rounded-lg border-2 border-accent2-light",
+          "px-4 py-2 font-bold text-nuetralText-dark",
+          "hover:text-nuetralText-light dark:text-lightText",
+        )}
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => reset()

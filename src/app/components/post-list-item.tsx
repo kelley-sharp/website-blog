@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Link from "next/link";
 import { getFormattedDate } from "src/shared/helpers";
 import { Meta } from "src/shared/types";
@@ -14,7 +15,10 @@ export default function PostListItem({ post }: PostListItemProps) {
       <li className="my-8 pt-0 text-xl md:my-5 md:text-2xl">
         <Link
           href={`/posts/${postId}`}
-          className="text-nuetralText-dark underline hover:text-nuetralText-light dark:hover:text-lightText"
+          className={classNames(
+            "text-nuetralText-dark underline hover:text-nuetralText-light",
+            "dark:hover:text-lightText",
+          )}
         >
           {title}
         </Link>
