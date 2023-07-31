@@ -1,14 +1,7 @@
 import { ImageResponse } from "next/server";
 
 // Route segment config
-// export const runtime = 'edge'
-
-// Image metadata
-export const alt = "Blog Post";
-export const size = {
-  width: 1200,
-  height: 630,
-};
+export const runtime = "edge";
 
 export const contentType = "image/png";
 
@@ -17,8 +10,12 @@ export const contentType = "image/png";
 //   res.arrayBuffer(),
 // );
 
+//image
+
 // Image generation
-export default async function Image() {
+export default async function Image({ params: { postId } }: { params: { postId: string } }) {
+  const imageUrl = await getImageByPostId({ postId: `${postId}/images/opengraph-image.png` });
+
   return new ImageResponse(
     (
       // ImageResponse JSX element
@@ -33,22 +30,17 @@ export default async function Image() {
           justifyContent: "center",
         }}
       >
-        About Acme
+        {/* Cloudinary Image Goes Here */}
       </div>
     ),
     // ImageResponse options
     {
-      // For convenience, we can re-use the exported opengraph-image
-      // size config to also set the ImageResponse's width and height.
-      ...size,
-      fonts: [
-        {
-          name: "Inter",
-          data: await interSemiBold,
-          style: "normal",
-          weight: 400,
-        },
-      ],
+      width: 1200,
+      height: 630,
     },
   );
+}
+
+async function getImageByPostId({ postId }: { postId: string }): Promise<string> {
+  // fetch here
 }
