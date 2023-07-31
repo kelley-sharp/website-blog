@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Link from "next/link";
 import { getFormattedDate } from "src/shared/helpers";
 import { Meta } from "src/shared/types";
@@ -11,16 +12,18 @@ export default function PostListItem({ post }: PostListItemProps) {
   const formattedDate = getFormattedDate(date);
   return (
     <div>
-      <li className="my-5 text-2xl">
+      <li className="my-8 pt-0 text-xl md:my-5 md:text-2xl">
         <Link
-          className="text-slate-500 underline hover:text-slate-400 dark:hover:text-white/70"
           href={`/posts/${postId}`}
-          prefetch={false}
+          className={classNames(
+            "text-neutral-dark underline hover:text-neutral-light",
+            "dark:hover:text-lightText",
+          )}
         >
           {title}
         </Link>
         <br />
-        <p className="text-md text-slate-400 dark:text-white/70">{formattedDate}</p>
+        <p className="text-md text-neutral-light dark:text-lightText">{formattedDate}</p>
       </li>
     </div>
   );

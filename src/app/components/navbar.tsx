@@ -5,25 +5,33 @@ import { ThemeToggleButton } from "src/app/components/theme-toggle-button";
 
 export function NavBar() {
   return (
-    <nav className="min-w-md flex p-10">
-      <div className="flex w-full flex-col md:flex-row md:justify-between md:px-6">
-        <ThemeToggleButton />
-        <h1 className="mb-2 text-3xl font-bold md:mb-0">
-          <Link
-            href="/"
-            className={classNames(
-              " text-slate-500 no-underline hover:text-slate-400",
-              "dark:text-white/70 dark:hover:text-white/70",
-            )}
-          >
-            <div className="flex flex-col text-7xl md:text-center md:text-4xl">
-              Kelley <br /> Sharp
-              <span className="md:text-md pt-4 text-xl md:text-center">Software Engineer</span>
-            </div>
-          </Link>
-        </h1>
-        <SocialMediaIcons />
+    <nav className="min-w-md mb-2 mt-5 flex md:my-10">
+      <div className="grid w-full grid-cols-12 items-center">
+        <ThemeToggleButton className="col-span-full hidden md:col-span-3 md:flex" />
+        <LogoHeader className="col-span-full md:col-span-6" />
+        <SocialMediaIcons className="col-span-full md:col-span-3" />
       </div>
     </nav>
+  );
+}
+
+type LogoHeaderProps = {
+  className?: string;
+};
+function LogoHeader({ className }: LogoHeaderProps) {
+  return (
+    <h1 className={classNames("mb-2 font-bold md:mx-12 md:mb-0", className)}>
+      <Link
+        href="/"
+        className={classNames(
+          "text-neutral-dark hover:text-neutral-light",
+          "dark:text-neutral-light dark:hover:text-lightText",
+        )}
+      >
+        <div className="text-center text-6xl md:text-4xl">
+          Kelley <br /> Sharp
+        </div>
+      </Link>
+    </h1>
   );
 }

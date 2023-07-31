@@ -1,9 +1,9 @@
 import PostListItem from "src/app/components/post-list-item";
 import { getPostsMeta } from "../../../lib/posts";
-// import ListItem from "@/app/components/list"
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
-export const revalidate = 86400; //one day in seconds;
+export const revalidate = 86400; //86400 one day in seconds;
 
 type TagProps = {
   params: {
@@ -32,7 +32,7 @@ export default async function TagPostList({ params: { tag } }: TagProps) {
 
   if (!posts)
     return (
-      <p className="mt-10 text-center text-slate-500 dark:text-white/70">
+      <p className="mt-10 text-center text-neutral-dark dark:text-lightText">
         Sorry, no posts available.
       </p>
     );
@@ -40,26 +40,17 @@ export default async function TagPostList({ params: { tag } }: TagProps) {
   const tagPosts = posts.filter((post) => post.tags?.includes(tag));
 
   if (!tagPosts.length) {
-    return (
-      <div>
-        <p className="mt-10 text-center text-slate-500 dark:text-white/70">
-          Sorry, no related posts available.
-        </p>
-        <Link href="/" className="mt-4 text-pink-500">
-          Back to home
-        </Link>
-      </div>
-    );
+    return notFound();
   }
   return (
     <>
-      <p className="mt-10 text-center text-slate-500 dark:text-white/70">
-        Results for <span className="text-pink-500">{tag}</span>
+      <p className="mt-10 text-center text-neutral-dark dark:text-lightText">
+        Results for <span className="text-accent1-dark">{tag}</span>
       </p>
       {tagPosts.map((tagPost) => (
         <PostListItem post={tagPost} />
       ))}
-      <Link href="/" className="mt-4 text-center text-pink-500">
+      <Link href="/" className="mt-4 text-center text-accent1-dark">
         Back to home
       </Link>
     </>
