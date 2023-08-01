@@ -4,13 +4,14 @@ import { getPostByName } from "src/lib/posts";
 
 export const contentType = "image/png";
 
-// Image generation
-export default async function GET(request: Request) {
-  try {
-    const { searchParams } = new URL(request.url);
+type ImageProps = {
+  params: { postId: string };
+};
 
-    const postId = searchParams.get("postId")?.slice(0, 100);
-    const name = postId ? postId.concat("/index.mdx") : undefined;
+// Image generation
+export default async function Image({ params: { postId } }: ImageProps) {
+  try {
+    const name = postId.concat("/index.mdx");
     const blogPost = await getPostByName(name);
 
     return new ImageResponse(
