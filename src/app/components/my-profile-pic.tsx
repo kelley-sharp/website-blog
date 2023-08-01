@@ -1,10 +1,11 @@
 "use client";
 import { CldImage } from "next-cloudinary";
 
-export function MyProfilePic() {
+type MyProfilePicProps = { className?: string };
+export function MyProfilePic({ className }: MyProfilePicProps) {
   return (
-    <section className="border-b-2 border-b-pink-500 md:border-none">
-      <CldImage src="blog/afsqeub2vc0rvfvkar56" width="500" height="500" alt="Kelley Sharp" />
+    <section className={className}>
+      <CldImage src="blog/afsqeub2vc0rvfvkar56" width={450} height={450} alt="Kelley Sharp" />
     </section>
   );
 }

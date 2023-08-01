@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+import { customColors } from "./src/shared/styles/custom-colors";
+
+export default {
   /**
    * content provides an array of globs letting TailwindCSS know which files it
    * should analyze for purging extra classes not used in your application.
@@ -13,7 +15,7 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    colors: { ...customColors, transparent: "transparent", current: "currentColor" },
   },
   plugins: [require("@tailwindcss/typography")],
 };
