@@ -4,7 +4,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings/lib";
 import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
-export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
+export async function getPostByName(fileName: string | undefined): Promise<BlogPost | undefined> {
   const res = await fetch(
     `https://raw.githubusercontent.com/kelley-sharp/blog-posts/main/${fileName}`,
     {
@@ -27,6 +27,8 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
     title: string;
     date: string;
     tags?: string[];
+    description: string;
+    author?: string;
   }>({
     source: rawMdx,
     options: {
@@ -46,7 +48,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
     },
   });
 
-  const postId = fileName.replace("/index", "").replace(/\.mdx$/, "");
+  const postId = fileName?.replace("/index", "").replace(/\.mdx$/, "") || undefined;
 
   const blogPostObj: BlogPost = {
     meta: {
@@ -54,6 +56,8 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
       title: frontmatter.title,
       date: frontmatter.date,
       tags: frontmatter.tags,
+      description: frontmatter.description,
+      author: "Kelley Sharp",
     },
     content,
   };

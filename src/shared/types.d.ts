@@ -8,5 +8,7 @@ export type Meta = {
   title: string;
   date: string;
   tags?: string[];
-  postId: string;
+  postId: string | undefined;
+  description: string;
+  author: string;
 };

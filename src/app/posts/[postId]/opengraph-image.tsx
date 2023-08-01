@@ -1,5 +1,6 @@
 import { CldImage } from "next-cloudinary";
 import { ImageResponse } from "next/server";
+import { getPostByName } from "src/lib/posts";
 
 export const contentType = "image/png";
 
@@ -8,8 +9,9 @@ export default async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
 
-    const hasPostId = searchParams.has("postId");
-    const postId = hasPostId ? searchParams.get("postId")?.slice(0, 100) : "Kelley's Blog";
+    const postId = searchParams.get("postId")?.slice(0, 100);
+    const name = postId ? postId.concat("/index.mdx") : undefined;
+    const blogPost = await getPostByName(name);
 
     return new ImageResponse(
       (
@@ -25,7 +27,18 @@ export default async function GET(request: Request) {
             justifyContent: "center",
           }}
         >
-          <CldImage alt={postId ? postId : "kelley's Blog"} src={`blog/${postId}`} />
+          {postId ? (
+            <CldImage alt={postId} src={`blog/${postId}`} />
+          ) : (
+            <CldImage alt="Kelley Sharp" src={"blog/afsqeub2vc0rvfvkar56"} />
+          )}
+
+          <p>{blogPost?.meta.title || "Kelley's Blog"}</p>
+          <p>
+            {blogPost?.meta.description ||
+              "Musings from a Software Engineer with 5 years of experience"}
+          </p>
+          <p>`Author: ${blogPost?.meta.author || "Kelley Sharp"}`</p>
         </div>
       ),
       // ImageResponse options
