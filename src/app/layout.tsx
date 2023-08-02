@@ -12,6 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Kelley's Blog",
   description: "Musings from a Software Engineer with over 5 years of experience",
+  openGraph: { images: "/images/profile-pic.png" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

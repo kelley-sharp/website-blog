@@ -39,7 +39,6 @@ export async function generateMetadata({ params: { postId } }: PostProps) {
   return {
     title: post.meta.title,
     description: post.meta.description,
-    openGraph: { images: ["src/shared/images/profile-pic.png"] },
   };
 }
 
