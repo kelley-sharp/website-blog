@@ -3,7 +3,7 @@ import { getPostByName } from "src/lib/posts";
 
 export const contentType = "image/png";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 type ImageProps = {
   params: { postId: string };
@@ -17,12 +17,13 @@ export default async function OGImage({ params: { postId } }: ImageProps) {
     const {
       meta: { title },
     } = blogPost;
+
     return new ImageResponse(
       (
         // ImageResponse JSX element
         <div
           style={{
-            fontSize: 128,
+            fontSize: 68,
             background: "white",
             width: "100%",
             height: "100%",
@@ -31,13 +32,9 @@ export default async function OGImage({ params: { postId } }: ImageProps) {
             justifyContent: "center",
           }}
         >
-          {title}
+          <p>{title}</p>
         </div>
       ),
-      {
-        width: 800,
-        height: 430,
-      },
     );
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
