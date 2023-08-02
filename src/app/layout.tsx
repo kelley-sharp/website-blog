@@ -3,9 +3,9 @@ import classNames from "classnames";
 import "src/shared/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { NavBar } from "src/app/components/navbar";
-import { Providers } from "src/app/providers";
-import { ThemeToggleButton } from "src/app/components/theme-toggle-button";
+import { NavBar } from "./components/navbar";
+import { Providers } from "./providers";
+import { ThemeToggleButton } from "./components/theme-toggle-button";
 
 const inter = Inter({ subsets: ["latin"] });
 

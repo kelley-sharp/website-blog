@@ -1,4 +1,4 @@
-import PostListItem from "src/app/components/post-list-item";
+import PostListItem from "../../components/post-list-item";
 import { getPostsMeta } from "../../../lib/posts";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -32,7 +32,7 @@ export default async function TagPostList({ params: { tag } }: TagProps) {
 
   if (!posts)
     return (
-      <p className="mt-10 text-center text-neutral-dark dark:text-lightText">
+      <p className="dark:text-lightText mt-10 text-center text-neutral-dark">
         Sorry, no posts available.
       </p>
     );
@@ -44,7 +44,7 @@ export default async function TagPostList({ params: { tag } }: TagProps) {
   }
   return (
     <>
-      <p className="mt-10 text-center text-neutral-dark dark:text-lightText">
+      <p className="dark:text-lightText mt-10 text-center text-neutral-dark">
         Results for <span className="text-accent1-dark">{tag}</span>
       </p>
       {tagPosts.map((tagPost) => (

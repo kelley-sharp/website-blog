@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NotFoundPage from "src/app/components/not-found-page";
+import NotFoundPage from "./components/not-found-page";
 
 export default function NotFound() {
   return (

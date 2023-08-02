@@ -1,20 +1,18 @@
 "use-client";
-import { CldOgImage } from "next-cloudinary";
+// import Image from "next/image";
 import { ImageResponse } from "next/server";
-import { getPostByName } from "src/lib/posts";
 
 export const contentType = "image/png";
+
+export const runtime = "edge";
 
 type ImageProps = {
   params: { postId: string };
 };
 
 // Image generation
-export default async function Image({ params: { postId } }: ImageProps) {
+export default function Image({ params: { postId } }: ImageProps) {
   try {
-    const name = postId.concat("/index.mdx");
-    const blogPost = await getPostByName(name);
-
     return new ImageResponse(
       (
         // ImageResponse JSX element
@@ -29,18 +27,7 @@ export default async function Image({ params: { postId } }: ImageProps) {
             justifyContent: "center",
           }}
         >
-          {postId ? (
-            <CldOgImage alt={postId} src={`blog/${postId}`} />
-          ) : (
-            <CldOgImage alt="Kelley Sharp" src="blog/afsqeub2vc0rvfvkar56" />
-          )}
-
-          <p>{blogPost?.meta.title || "Kelley's Blog"}</p>
-          <p>
-            {blogPost?.meta.description ||
-              "Musings from a Software Engineer with 5 years of experience"}
-          </p>
-          <p>`Author: ${blogPost?.meta.author || "Kelley Sharp"}`</p>
+          <img alt={postId} src={`/${postId}.png`} />
         </div>
       ),
       {

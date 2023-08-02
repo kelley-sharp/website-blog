@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import Link from "next/link";
-import { SocialMediaIcons } from "src/app/components/social-media-icons";
-import { ThemeToggleButton } from "src/app/components/theme-toggle-button";
+import { SocialMediaIcons } from "./social-media-icons";
+import { ThemeToggleButton } from "./theme-toggle-button";
 
 export function NavBar() {
   return (
@@ -25,7 +25,7 @@ function LogoHeader({ className }: LogoHeaderProps) {
         href="/"
         className={classNames(
           "text-neutral-dark hover:text-neutral-light",
-          "dark:text-neutral-light dark:hover:text-lightText",
+          "dark:hover:text-lightText dark:text-neutral-light",
         )}
       >
         <div className="text-center text-6xl md:text-4xl">

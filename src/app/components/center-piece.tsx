@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Link from "next/link";
-import { MyProfilePic } from "src/app/components/my-profile-pic";
+import { MyProfilePic } from "./my-profile-pic";
 
 export function CenterPiece() {
   return (

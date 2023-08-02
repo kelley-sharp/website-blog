@@ -1,5 +1,5 @@
 import { getPostsMeta } from "../../lib/posts";
-import PostListItem from "src/app/components/post-list-item";
+import PostListItem from "./post-list-item";
 
 type PostsListProps = {
   className?: string;
@@ -9,7 +9,7 @@ export async function PostsList({ className }: PostsListProps) {
 
   if (!posts) {
     return (
-      <p className="mt-10 text-center text-neutral-dark dark:text-lightText">
+      <p className="dark:text-lightText mt-10 text-center text-neutral-dark">
         Sorry, no posts available.
       </p>
     );

@@ -1,5 +1,5 @@
-import { CenterPiece } from "src/app/components/center-piece";
-import { PostsList } from "src/app/components/posts-list";
+import { CenterPiece } from "./components/center-piece";
+import { PostsList } from "./components/posts-list";
 
 export const revalidate = 86400; //86400 one day in seconds
 
