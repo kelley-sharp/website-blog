@@ -2,12 +2,4 @@
 const nextConfig = {
   reactStrictMode: true,
 };
-
-module.exports = nextConfig;
-
-module.exports = {
-  images: {
-    domains: ["res.cloudinary.com"],
-  },
-};
 module.exports = nextConfig;

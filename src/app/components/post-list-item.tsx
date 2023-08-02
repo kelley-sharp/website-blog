@@ -23,7 +23,7 @@ export default function PostListItem({ post }: PostListItemProps) {
           {title}
         </Link>
         <br />
-        <p className="text-md text-neutral-light dark:text-lightText">{formattedDate}</p>
+        <p className="text-md dark:text-lightText text-neutral-light">{formattedDate}</p>
       </li>
     </div>
   );

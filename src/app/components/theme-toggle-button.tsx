@@ -68,7 +68,7 @@ export function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
             aria-hidden="true"
             className={classNames(
               theme === "dark"
-                ? "bg-dark translate-x-8 md:translate-x-5"
+                ? "translate-x-8 bg-dark md:translate-x-5"
                 : "translate-x-0 bg-white",
               "pointer-events-none inline-block transform md:h-5 md:w-5",
               "rounded-full shadow ring-0 transition duration-200",

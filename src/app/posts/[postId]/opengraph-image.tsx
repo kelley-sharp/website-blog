@@ -1,6 +1,5 @@
-"use-client";
-// import Image from "next/image";
 import { ImageResponse } from "next/server";
+import { getPostByName } from "src/lib/posts";
 
 export const contentType = "image/png";
 
@@ -11,8 +10,13 @@ type ImageProps = {
 };
 
 // Image generation
-export default function Image({ params: { postId } }: ImageProps) {
+export default async function OGImage({ params: { postId } }: ImageProps) {
   try {
+    const blogPost = await getPostByName(postId + "/index.mdx");
+    if (!blogPost) throw new Error("Failed to load blog post metadata");
+    const {
+      meta: { title },
+    } = blogPost;
     return new ImageResponse(
       (
         // ImageResponse JSX element
@@ -27,12 +31,12 @@ export default function Image({ params: { postId } }: ImageProps) {
             justifyContent: "center",
           }}
         >
-          <img alt={postId} src={`/${postId}.png`} />
+          {title}
         </div>
       ),
       {
-        width: 1200,
-        height: 630,
+        width: 800,
+        height: 430,
       },
     );
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
