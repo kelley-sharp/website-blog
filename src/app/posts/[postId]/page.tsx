@@ -36,7 +36,11 @@ export async function generateMetadata({ params: { postId } }: PostProps) {
     };
   }
 
-  return { title: post.meta.title };
+  return {
+    title: post.meta.title,
+    description: post.meta.description,
+    openGraph: { images: ["src/shared/images/profile-pic.png"] },
+  };
 }
 
 export default async function Post({ params: { postId } }: PostProps) {
@@ -61,7 +65,7 @@ export default async function Post({ params: { postId } }: PostProps) {
       <article className="text-neutral-dark">{content}</article>
       {meta.tags && (
         <section>
-          <h3 className="text-neutral-dark dark:text-lightText">Related</h3>
+          <h3 className="dark:text-lightText text-neutral-dark">Related</h3>
           <div className="flex flex-row gap-4">{tags}</div>
         </section>
       )}

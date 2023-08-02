@@ -1,4 +1,5 @@
-import { CldImage } from "next-cloudinary";
+"use-client";
+import { CldOgImage } from "next-cloudinary";
 import { ImageResponse } from "next/server";
 import { getPostByName } from "src/lib/posts";
 
@@ -29,9 +30,9 @@ export default async function Image({ params: { postId } }: ImageProps) {
           }}
         >
           {postId ? (
-            <CldImage alt={postId} src={`blog/${postId}`} />
+            <CldOgImage alt={postId} src={`blog/${postId}`} />
           ) : (
-            <CldImage alt="Kelley Sharp" src={"blog/afsqeub2vc0rvfvkar56"} />
+            <CldOgImage alt="Kelley Sharp" src="blog/afsqeub2vc0rvfvkar56" />
           )}
 
           <p>{blogPost?.meta.title || "Kelley's Blog"}</p>
@@ -42,7 +43,6 @@ export default async function Image({ params: { postId } }: ImageProps) {
           <p>`Author: ${blogPost?.meta.author || "Kelley Sharp"}`</p>
         </div>
       ),
-      // ImageResponse options
       {
         width: 1200,
         height: 630,
@@ -51,6 +51,7 @@ export default async function Image({ params: { postId } }: ImageProps) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
     console.log(`${e.message}`);
+    console.log({ postId });
     return new Response(`Failed to generate the image`, {
       status: 500,
     });

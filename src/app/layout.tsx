@@ -20,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
+
       <body className={inter.className}>
         <Providers>
           <main

@@ -1,3 +1,5 @@
+"use-client";
+
 import { BlogPost, Meta } from "../shared/types";
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings/lib";
