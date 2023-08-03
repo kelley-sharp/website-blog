@@ -8,7 +8,7 @@
 
 [TailwindCSS Typography](https://tailwindcss.com/docs/typography-plugin)
 
-[Rehype Plugins](https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins)
+[rehype plugins](https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins)
 
 [react-icons](https://www.npmjs.com/package/react-icons)
 
