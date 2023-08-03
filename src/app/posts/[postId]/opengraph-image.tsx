@@ -23,16 +23,31 @@ export default async function OGImage({ params: { postId } }: ImageProps) {
         // ImageResponse JSX element
         <div
           style={{
-            fontSize: 68,
-            background: "white",
+            fontSize: 58,
+            fontWeight: "bold",
+            color: "#64748b",
+            background: "#1e293b",
             width: "100%",
             height: "100%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            border: "10px solid #ec4899",
           }}
         >
-          <p>{title}</p>
+          <p
+            style={{
+              background: "#1e293b",
+              textTransform: "uppercase",
+              border: "10px solid #60a5fa",
+              borderRadius: "30px",
+              marginLeft: 15,
+              marginRight: 15,
+              padding: 200,
+            }}
+          >
+            {title}
+          </p>
         </div>
       ),
     );
