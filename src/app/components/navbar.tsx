@@ -2,13 +2,14 @@ import classNames from "classnames";
 import Link from "next/link";
 import { SocialMediaIcons } from "./social-media-icons";
 import { ThemeToggleButton } from "./theme-toggle-button";
+import { MyLogo } from "src/app/components/my-logo";
 
 export function NavBar() {
   return (
     <nav className="min-w-md mb-2 mt-5 flex md:my-10">
       <div className="grid w-full grid-cols-12 items-center">
         <ThemeToggleButton className="col-span-full hidden md:col-span-3 md:flex" />
-        <LogoHeader className="col-span-full md:col-span-6" />
+        <LogoHeader className="col-span-full flex justify-center md:col-span-6" />
         <SocialMediaIcons className="col-span-full md:col-span-3" />
       </div>
     </nav>
@@ -20,18 +21,10 @@ type LogoHeaderProps = {
 };
 function LogoHeader({ className }: LogoHeaderProps) {
   return (
-    <h1 className={classNames("mb-2 font-bold md:mx-12 md:mb-0", className)}>
-      <Link
-        href="/"
-        className={classNames(
-          "text-neutral-dark hover:text-neutral-light",
-          "dark:hover:text-lightText dark:text-neutral-light",
-        )}
-      >
-        <div className="text-center text-6xl md:text-4xl">
-          Kelley <br /> Sharp
-        </div>
+    <div className={classNames(className)}>
+      <Link href="/">
+        <MyLogo />
       </Link>
-    </h1>
+    </div>
   );
 }
