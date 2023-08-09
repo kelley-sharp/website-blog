@@ -12,7 +12,11 @@ type ThemeToggleButtonProps = {
   className?: string;
 };
 
-export function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
+/**
+ * We should use client-side only rendering for this component
+ * source: https://stackoverflow.com/a/66374800
+ */
+export default function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
   const { systemTheme, theme, setTheme } = useTheme();
 
   useEffect(() => {
@@ -20,9 +24,7 @@ export function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
       const storedTheme = localStorage.getItem("theme");
       if (storedTheme) {
         setTheme(storedTheme);
-      }
-    } else {
-      if (systemTheme) {
+      } else if (systemTheme) {
         setTheme(systemTheme);
       }
     }

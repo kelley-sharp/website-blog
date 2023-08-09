@@ -15,7 +15,6 @@ export async function getPostByName(fileName: string | undefined): Promise<BlogP
         Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         "X-GitHub-Api-Version": "2022-11-28",
       },
-      cache: "no-store",
     },
   );
 
@@ -75,7 +74,6 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
         Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         "X-GitHub-Api-Version": "2022-11-28",
       },
-      cache: "no-store",
     },
   );
 

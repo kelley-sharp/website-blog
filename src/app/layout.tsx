@@ -5,8 +5,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NavBar } from "./components/navbar";
 import { Providers } from "./providers";
-import { ThemeToggleButton } from "./components/theme-toggle-button";
+import dynamic from "next/dynamic";
 
+const ThemeToggleButton = dynamic(() => import("./components/theme-toggle-button"), { ssr: false });
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
