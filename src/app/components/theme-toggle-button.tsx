@@ -2,11 +2,7 @@
 import { Switch } from "@headlessui/react";
 import classNames from "classnames";
 import { useTheme } from "next-themes";
-import { useEffect, lazy, Suspense } from "react";
-
-//lazy here means don't import the file until rendered
-const LightThemeLazy = lazy(() => import("src/shared/styles/light-theme"));
-const DarkThemeLazy = lazy(() => import("src/shared/styles/dark-theme"));
+import { useEffect } from "react";
 
 type ThemeToggleButtonProps = {
   className?: string;
@@ -17,7 +13,7 @@ type ThemeToggleButtonProps = {
  * source: https://stackoverflow.com/a/66374800
  */
 export default function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { systemTheme, resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.localStorage) {
@@ -42,22 +38,20 @@ export default function ThemeToggleButton({ className }: ThemeToggleButtonProps)
 
   return (
     <>
-      <Suspense fallback={<></>}>
-        {theme === "light" ? <LightThemeLazy /> : null}
-        {theme === "dark" ? <DarkThemeLazy /> : null}
-      </Suspense>
       <div
         className={classNames(
           "mb-2 mt-5 flex flex-col items-center justify-start gap-2 pb-10 md:mb-0 md:mt-0 md:flex-row md:gap-4 md:pb-0",
           className,
         )}
       >
-        <p className="text-md font-bold text-neutral-dark">{theme === "dark" ? "Dark" : "Light"}</p>
+        <p className="text-md font-bold text-neutral-dark">
+          {resolvedTheme === "dark" ? "Dark" : "Light"}
+        </p>
         <Switch
-          checked={theme === "light"}
+          checked={resolvedTheme === "light"}
           onChange={(e) => handleToggleTheme(e)}
           className={classNames(
-            theme === "dark" ? " bg-accent2-light" : "bg-accent2-dark",
+            resolvedTheme === "dark" ? " bg-accent2-light" : "bg-accent2-dark",
             "focus-none focus:ring-3 relative inline-flex md:h-6 md:w-11",
             "flex-shrink-0 cursor-pointer rounded-full border-2",
             "border-transparent transition-colors duration-200",
@@ -69,7 +63,7 @@ export default function ThemeToggleButton({ className }: ThemeToggleButtonProps)
           <span
             aria-hidden="true"
             className={classNames(
-              theme === "dark"
+              resolvedTheme === "dark"
                 ? "translate-x-8 bg-dark md:translate-x-5"
                 : "translate-x-0 bg-white",
               "pointer-events-none inline-block transform md:h-5 md:w-5",

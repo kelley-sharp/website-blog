@@ -22,7 +22,9 @@
 
 .post-content {
   @apply prose-strong:text-accent2-dark;
-  @apply prose-code:text-dark prose-strong:dark:text-accent2-light prose-code:dark:text-white;
-  @apply prose-code:font-mono prose-code:before:content-none prose-code:after:content-none;
-  @apply prose-pre:bg-white prose-pre:dark:bg-dark;
+  @apply prose-strong:dark:text-accent2-light;
+  @apply prose-code:dark:text-white;
+  @apply prose-code:font-mono prose-code:text-dark prose-code:before:content-none prose-code:after:content-none;
+  @apply prose-pre:bg-white;
+  @apply prose-pre:dark:bg-dark;
 }

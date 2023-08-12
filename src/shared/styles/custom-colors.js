@@ -9,7 +9,6 @@ export const customColors = {
     light: "#93c5fd", //300
     dark: "#60a5fa", //400
   },
-
   accent3: "#fde047", //yellow-300
   neutral: {
     light: "#94a3b8", //slate-400
