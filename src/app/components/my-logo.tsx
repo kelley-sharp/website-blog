@@ -6,7 +6,7 @@ export function MyLogo({ className, size }: MyLogoProps) {
   return (
     <section style={{ width: 300 }} className={className}>
       <CldImage
-        src="blog/qc1ba0xjolzyvlatlyqu"
+        src="blog/vm5jhozsfzoadzfhl1yn"
         width={size ? size : 600}
         height={size ? size : 339}
         alt="Kelley Sharp's Logo"
