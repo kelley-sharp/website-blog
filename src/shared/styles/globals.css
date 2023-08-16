@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-white dark:bg-dark;
+    @apply bg-offwhite dark:bg-dark;
   }
 
   html {
@@ -71,7 +71,7 @@ html.light code.hljs {
 
 html.light .hljs {
   color: #6c696e;
-  @apply bg-white;
+  @apply bg-offwhite;
 }
 
 html.light .hljs::selection,

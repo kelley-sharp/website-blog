@@ -1,15 +1,15 @@
 .post-content a {
   @apply no-underline;
 
-  @apply !text-accent1-dark;
+  @apply !text-accent1-dark hover:!text-accent1-light;
 }
 
 .post-content h4 a {
-  @apply !text-dark dark:!text-light;
+  @apply !text-dark dark:!text-accent2-dark;
 }
 
 .post-content h3 a {
-  @apply !text-neutral-dark dark:!text-light;
+  @apply !text-neutral-dark dark:!text-offwhite;
 }
 
 .post-content .title {
@@ -20,11 +20,15 @@
   @apply pt-4 text-center !text-neutral-dark dark:!text-light;
 }
 
+.post-content article {
+  @apply !text-neutral-dark dark:!text-light;
+}
+
 .post-content {
   @apply prose-strong:text-accent2-dark;
-  @apply prose-strong:dark:text-accent2-light;
-  @apply prose-code:dark:text-white;
+  @apply prose-strong:dark:text-accent3;
+  @apply prose-code:dark:text-accent2-dark;
   @apply prose-code:font-mono prose-code:text-dark prose-code:before:content-none prose-code:after:content-none;
-  @apply prose-pre:bg-white;
+  @apply prose-pre:bg-offwhite;
   @apply prose-pre:dark:bg-dark;
 }

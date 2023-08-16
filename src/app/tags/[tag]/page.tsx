@@ -32,7 +32,7 @@ export default async function TagPostList({ params: { tag } }: TagProps) {
 
   if (!posts)
     return (
-      <p className="dark:text-lightText mt-10 text-center text-neutral-dark">
+      <p className="mt-10 text-center text-neutral-dark dark:text-neutral-light">
         Sorry, no posts available.
       </p>
     );
@@ -44,13 +44,16 @@ export default async function TagPostList({ params: { tag } }: TagProps) {
   }
   return (
     <>
-      <p className="dark:text-lightText mt-10 text-center text-neutral-dark">
-        Results for <span className="text-accent1-dark">{tag}</span>
+      <p className="mt-10 text-center text-neutral-dark dark:text-neutral-light">
+        Results for <span className="font-semibold text-accent2-dark">{tag}</span>
       </p>
       {tagPosts.map((tagPost) => (
         <PostListItem post={tagPost} />
       ))}
-      <Link href="/" className="mt-4 text-center text-accent1-dark">
+      <Link
+        href="/"
+        className="mt-4 text-center font-semibold text-accent1-dark hover:text-accent1-light"
+      >
         Back to home
       </Link>
     </>

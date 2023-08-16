@@ -44,7 +44,7 @@ export default function ThemeToggleButton({ className }: ThemeToggleButtonProps)
           className,
         )}
       >
-        <p className="text-md font-bold text-neutral-dark">
+        <p className="text-md font-bold text-neutral-dark dark:text-neutral-light">
           {resolvedTheme === "dark" ? "Dark" : "Light"}
         </p>
         <Switch
@@ -65,7 +65,7 @@ export default function ThemeToggleButton({ className }: ThemeToggleButtonProps)
             className={classNames(
               resolvedTheme === "dark"
                 ? "translate-x-8 bg-dark md:translate-x-5"
-                : "translate-x-0 bg-white",
+                : "translate-x-0 bg-offwhite",
               "pointer-events-none inline-block transform md:h-5 md:w-5",
               "rounded-full shadow ring-0 transition duration-200",
               "h-7 w-7 ease-in-out",

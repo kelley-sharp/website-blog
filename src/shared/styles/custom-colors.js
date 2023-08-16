@@ -16,5 +16,6 @@ export const customColors = {
   },
   dark: "#1e293b", //slate-800
   light: "#cbd5e1", //slate-300
-  white: "#e8f0fa", //e0e4e9  d8e0e9
+  offwhite: "#e8f0fa", //e0e4e9
+  white: "#ffffff",
 };
