@@ -7,8 +7,8 @@ export function MyProfilePic({ className, size }: MyProfilePicProps) {
     <section className={className}>
       <CldImage
         src="blog/afsqeub2vc0rvfvkar56"
-        width={size ? size : 450}
-        height={size ? size : 450}
+        width={size ? size : 2000}
+        height={size ? size : 2000}
         alt="Kelley Sharp"
       />
     </section>
