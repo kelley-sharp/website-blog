@@ -1,17 +1,13 @@
 "use client";
-import { CldImage } from "next-cloudinary";
+import { useTheme } from "next-themes";
+// import { CldImage } from "next-cloudinary";
+import Image from "next/image";
 
 type MyLogoProps = { className?: string; size?: number };
-export function MyLogo({ className, size }: MyLogoProps) {
+export function MyLogo({ className }: MyLogoProps) {
   return (
     <section style={{ width: 300 }} className={className}>
-      <CldImage
-        src="blog/oqdshwtaox54akkevzjw"
-        width={size ? size : 600}
-        height={size ? size : 339}
-        alt="Kelley Sharp's Logo"
-        quality={100}
-      />
+      <Image src="/logo-light.svg" alt="Kelley Sharp's Logo" width={600} height={339} />
     </section>
   );
 }

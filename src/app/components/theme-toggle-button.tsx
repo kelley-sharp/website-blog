@@ -28,11 +28,11 @@ export default function ThemeToggleButton({ className }: ThemeToggleButtonProps)
 
   function handleToggleTheme(value: boolean) {
     if (value === true) {
-      setTheme("light");
-      localStorage.setItem("theme", "light");
-    } else if (value === false) {
       setTheme("dark");
       localStorage.setItem("theme", "dark");
+    } else if (value === false) {
+      setTheme("light");
+      localStorage.setItem("theme", "light");
     }
   }
 
@@ -48,7 +48,7 @@ export default function ThemeToggleButton({ className }: ThemeToggleButtonProps)
           {resolvedTheme === "dark" ? "Dark" : "Light"}
         </p>
         <Switch
-          checked={resolvedTheme === "light"}
+          checked={resolvedTheme === "dark"}
           onChange={(e) => handleToggleTheme(e)}
           className={classNames(
             resolvedTheme === "dark" ? " bg-accent2-light" : "bg-accent2-dark",
