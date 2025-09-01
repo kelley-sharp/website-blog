@@ -8,19 +8,15 @@ export function MyProfilePic({ className, size }: MyProfilePicProps) {
     <section
       className={classNames(
         className,
-        "border-rounded-2xl overflow-hidden border border-transparent",
+        "border-rounded-2xl h-[278px] w-auto self-end overflow-hidden border border-transparent md:h-[235px] lg:h-[345px]",
       )}
-      style={{
-        width: "auto",
-        height: `${size ? size * 0.175 : 345}px`,
-      }}
     >
       <CldImage
         src="blog/afsqeub2vc0rvfvkar56"
-        width={size ? size : 2000}
-        height={size ? size : 2000}
+        width={size ? size : 1800}
+        height={size ? size : 1800}
         alt="Kelley Sharp"
-        className="h-full w-full object-cover"
+        className="h-auto w-full object-cover"
       />
     </section>
   );
