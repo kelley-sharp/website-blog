@@ -1,6 +1,5 @@
 "use client";
 import { CldImage } from "next-cloudinary";
-// import Image from "next/image";
 import classNames from "classnames";
 
 type MyProfilePicProps = { className?: string; size?: number };

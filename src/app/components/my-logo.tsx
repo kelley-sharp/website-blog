@@ -1,6 +1,4 @@
 "use client";
-import { useTheme } from "next-themes";
-// import { CldImage } from "next-cloudinary";
 import Image from "next/image";
 
 type MyLogoProps = { className?: string; size?: number };
