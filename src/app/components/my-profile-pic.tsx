@@ -8,7 +8,7 @@ export function MyProfilePic({ className, size }: MyProfilePicProps) {
     <section
       className={classNames(
         className,
-        "border-rounded-2xl h-[278px] w-auto self-end overflow-hidden border border-transparent md:h-[235px] lg:h-[345px]",
+        "border-rounded-2xl h-[370px] w-auto self-end overflow-hidden border border-transparent md:h-[235px] lg:h-[345px]",
       )}
     >
       <CldImage
