@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { SocialMediaIcons } from "./social-media-icons";
-import { MyLogo } from "src/app/components/my-logo";
 import dynamic from "next/dynamic";
 
 const ThemeToggleButton = dynamic(() => import("src/app/components/theme-toggle-button"), {
@@ -29,7 +28,7 @@ function LogoHeader({ className }: LogoHeaderProps) {
   return (
     <div className={classNames(className)}>
       <Link href="/">
-        <MyLogo />
+        <span className="text-2xl font-bold">Kelley Sharp</span>
       </Link>
     </div>
   );
